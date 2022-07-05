@@ -76,6 +76,6 @@
     "attachment": "Thanks for sending this attachment, we can connect you to an agent to review it or we can start over"
   },
   "food_menu": {
-    "today": "Hi {{user_first_name}}, here is todays menu."
+    "today": "Hi {{userFirstName}}, here is todays menu."
   }
 }
