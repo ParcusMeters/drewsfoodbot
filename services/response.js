@@ -171,6 +171,7 @@ module.exports = class Response {
     return [welcome, guide, curation];
   }
 
+
   static genMenuMessage(user) {
     let welcome = this.genText(
       i18n.__("get_started.welcome", {
@@ -182,16 +183,12 @@ module.exports = class Response {
 
     let curation = this.genQuickReply(i18n.__("get_started.help"), [
       {
-        title: i18n.__("menu.suggestion"),
+        title: i18n.__("menu.todays_menu"),
         payload: "CURATION"
       },
       {
-        title: i18n.__("menu.help"),
+        title: i18n.__("menu.tomorrows_menu"),
         payload: "CARE_HELP"
-      },
-      {
-        title: i18n.__("menu.product_launch"),
-        payload: "PRODUCT_LAUNCH"
       }
     ]);
 

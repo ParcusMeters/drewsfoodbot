@@ -8,7 +8,9 @@
     "suggestion": "Outfit suggestions",
     "shop": "Shop now",
     "start_over": "Start over",
-    "product_launch":"Launch updates"
+    "product_launch":"Launch updates",
+    "todays_menu": "See todays menu",
+    "tomorrows_menu": "See tomorrows menu"
   },
   "get_started": {
     "welcome": "Hi {{userFirstName}}! Welcome to Original Coast Clothing where you'll find styles for every occasion.",
@@ -74,6 +76,6 @@
     "attachment": "Thanks for sending this attachment, we can connect you to an agent to review it or we can start over"
   },
   "food_menu": {
-    "today": "The menu today is beans"
+    "today": "Hi {{userFirstName}}, here is todays menu."
   }
 }
