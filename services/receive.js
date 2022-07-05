@@ -89,7 +89,9 @@ module.exports = class Receive {
       message.includes("start over")
     ) {
       response = Response.genNuxMessage(this.user);
-    } else if (Number(message)) {
+    } else if (message.includes("food menu")){
+      response = Response.genMenuMessage(this.user);
+    }else if (Number(message)) {
       response = Order.handlePayload("ORDER_NUMBER");
     } else if (message.includes("#")) {
       response = Survey.handlePayload("CSAT_SUGGESTION");
