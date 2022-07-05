@@ -174,7 +174,7 @@ module.exports = class Response {
 
   static genMenuMessage(user) {
     let welcome = this.genText(
-      i18n.__("get_started.welcome", {
+      i18n.__("get_started.greeting", {
         userFirstName: user.firstName
       })
     );
