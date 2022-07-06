@@ -48,6 +48,14 @@ module.exports = class Order {
         );
         break;
 
+      case "TODAYS_MENU_IMAGE":
+        response = Response.genImageTemplate(
+          `${config.appUrl}/1811.jpg`,
+          i18n.__("order.status")
+        );
+        break;
+  
+
       case "LINK_ORDER":
         response = [
           Response.genText(i18n.__("order.dialog")),

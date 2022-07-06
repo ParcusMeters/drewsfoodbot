@@ -192,4 +192,25 @@ module.exports = class Response {
 
     return [welcome, curation];
   }
+  static genMenuImageTemplate(image_url, title, subtitle = "") {
+    let response = {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [
+            {
+              title: title,
+              subtitle: subtitle,
+              image_url: image_url
+            }
+          ]
+        }
+      }
+    };
+
+    return response;
+  }
+
+
 };
