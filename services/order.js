@@ -43,7 +43,7 @@ module.exports = class Order {
 
       case "ORDER_NUMBER":
         response = Response.genImageTemplate(
-          `${config.appUrl}/order.png`,
+          `${config.appUrl}/Todays Feed.pdf`,
           i18n.__("order.status")
         );
         break;
