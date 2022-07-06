@@ -51,7 +51,7 @@ module.exports = class Order {
       case "TODAYS_MENU_IMAGE":
         response = Response.genImageTemplate(
           `${config.appUrl}/1811.jpg`,
-          i18n.__("order.status")
+          ""
         );
         break;
   
