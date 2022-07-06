@@ -251,9 +251,7 @@ module.exports = class Receive {
         text: `[INFO]The following message is a sample weekly recurring notification. This is usually sent outside the initial 24-hour window for users who have opted in to weekly messages.`
       };
     } else if (payload === "TODAYS_MENU") {
-      response = {
-        text: 'Todays menu is beans'
-      };
+      response = Order.handlePayload(payload);
     } 
     else {
       response = {
