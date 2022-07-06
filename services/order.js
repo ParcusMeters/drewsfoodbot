@@ -43,14 +43,14 @@ module.exports = class Order {
 
       case "ORDER_NUMBER":
         response = Response.genImageTemplate(
-          `${config.appUrl}/Todays Feed.pdf`,
+          `${config.appUrl}/order.png`,
           i18n.__("order.status")
         );
         break;
 
       case "TODAYS_MENU":
         response = Response.genImageTemplate(
-          `${config.appUrl}/1811.jpg`,
+          `${config.appUrl}/Todays_Feed.pdf`,
           "Todays Menu"
         );
         break;
