@@ -114,15 +114,11 @@ module.exports = class Receive {
         Response.genQuickReply(i18n.__("get_started.help"), [
           {
             title: i18n.__("menu.suggestion"),
-            payload: "CURATION"
+            payload: "MENU_TODAY"
           },
           {
             title: i18n.__("menu.help"),
-            payload: "CARE_HELP"
-          },
-          {
-            title: i18n.__("menu.product_launch"),
-            payload: "PRODUCT_LAUNCH"
+            payload: "MENU_TOMORROW"
           }
         ])
       ];

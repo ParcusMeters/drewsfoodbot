@@ -13,8 +13,8 @@
     "tomorrows_menu": "See tomorrows menu"
   },
   "get_started": {
-    "welcome": "Hi {{userFirstName}}! Welcome to Original Coast Clothing where you'll find styles for every occasion.",
-    "guidance": "At any time, use the menu below to navigate through the features",
+    "welcome": "Hi {{userFirstName}}! Welcome to Drew's Bot.",
+    "guidance": "At any time, use the menu below to navigate through the features. Type 'food menu' for the options to appear again in the future.",
     "help": "What we can do to help you today?",
     "greeting": "Hi {{userFirstName}}, welcome to Drew's Bot!"
   },
