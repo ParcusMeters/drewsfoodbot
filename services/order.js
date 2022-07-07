@@ -50,7 +50,7 @@ module.exports = class Order {
 
       case "TODAYS_MENU":
         response = Response.genMenuImage(
-          `${config.appUrl}/1811.jpg`
+          `${config.appUrl}/Todays_Feed.pdf`
         );
         break;
   
