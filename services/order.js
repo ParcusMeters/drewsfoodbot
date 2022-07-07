@@ -49,11 +49,17 @@ module.exports = class Order {
         break;
 
       case "TODAYS_MENU":
-        response = Response.genImageTemplate(
+        response = Response.genMenuImage(
           `${config.appUrl}/1811.jpg`
         );
         break;
   
+      case "TOMORROWS_MENU":
+        response = Response.genMenuImage(
+          `${config.appUrl}/1811.jpg`
+        );
+        break;
+
 
       case "LINK_ORDER":
         response = [

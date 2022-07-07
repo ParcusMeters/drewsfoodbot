@@ -250,9 +250,13 @@ module.exports = class Receive {
       response = {
         text: `[INFO]The following message is a sample weekly recurring notification. This is usually sent outside the initial 24-hour window for users who have opted in to weekly messages.`
       };
+
+    //adding menu options
     } else if (payload === "TODAYS_MENU") {
       response = Order.handlePayload(payload);
-    } 
+    } else if (payload === "TOMORROWS_MENU") {
+      response = Order.handlePayload(payload);
+    }
     else {
       response = {
         text: `This is a default postback message for payload: ${payload}!`

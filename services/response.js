@@ -186,25 +186,19 @@ module.exports = class Response {
       },
       {
         title: i18n.__("menu.tomorrows_menu"),
-        payload: "CARE_HELP"
+        payload: "TOMORROWS_MENU"
       }
     ]);
 
     return [welcome, curation];
   }
-  static genMenuImageTemplate(image_url, title, subtitle = "") {
+  static genMenuImage(url) {
     let response = {
       attachment: {
-        type: "template",
+        type: "file",
         payload: {
-          template_type: "generic",
-          elements: [
-            {
-              title: title,
-              subtitle: subtitle,
-              image_url: image_url
-            }
-          ]
+          "url": url,
+          "is_reusable": true
         }
       }
     };
