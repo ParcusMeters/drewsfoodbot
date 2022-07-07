@@ -114,11 +114,11 @@ module.exports = class Receive {
         Response.genQuickReply(i18n.__("get_started.help"), [
           {
             title: i18n.__("menu.todays_menu"),
-            payload: "MENU_TODAY"
+            payload: "TODAYS_MENU"
           },
           {
             title: i18n.__("menu.tomorrows_menu"),
-            payload: "MENU_TOMORROW"
+            payload: "TOMORROWS_MENU"
           }
         ])
       ];
