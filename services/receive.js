@@ -88,22 +88,15 @@ module.exports = class Receive {
       (greeting && greeting.confidence > 0.8) ||
       message.includes("start over")
     ) {
-      response = Response.genNuxMessage(this.user);
+      response = Response.genMenuMessage(this.user);
 
       //added features
     } else if (message.includes("food menu")){
       response = Response.genMenuMessage(this.user);
     } else if (message.includes("image")){
-      response = Order.handlePayload("TODAYS_MENU_IMAGE");
+      response = Order.handlePayload("TODAYS_MENU");
     }
-    else if (Number(message)) {
-      response = Order.handlePayload("ORDER_NUMBER");
-    } else if (message.includes("#")) {
-      response = Survey.handlePayload("CSAT_SUGGESTION");
-    } else if (message.includes(i18n.__("care.help").toLowerCase())) {
-      let care = new Care(this.user, this.webhookEvent);
-      response = care.handlePayload("CARE_HELP");
-    } else {
+    else {
       response = [
         Response.genText(
           i18n.__("fallback.any", {
