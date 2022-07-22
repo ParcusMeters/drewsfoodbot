@@ -15,7 +15,7 @@
   "get_started": {
     "welcome": "Hi {{userFirstName}}! Welcome to Drew's Bot.",
     "guidance": "At any time, use the menu below to navigate through the features. Type 'food menu' for the options to appear again in the future.",
-    "help": "What we can do to help you today?",
+    "help": "What can we do to help you today?",
     "greeting": "Hi {{userFirstName}}, welcome to Drew's Bot!"
   },
   "leadgen": {
