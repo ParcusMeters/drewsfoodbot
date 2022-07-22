@@ -128,14 +128,14 @@ module.exports = class Receive {
     let attachment = this.webhookEvent.message.attachments[0];
     console.log("Received attachment:", `${attachment} for ${this.user.psid}`);
 
-    response = Response.genQuickReply(i18n.__("fallback.attachment"), [
+    response = Response.genQuickReply(i18n.__("fallback.any"), [
       {
-        title: i18n.__("menu.help"),
-        payload: "CARE_HELP"
+        title: i18n.__("menu.todays_menu"),
+        payload: "TODAYS_MENU"
       },
       {
-        title: i18n.__("menu.start_over"),
-        payload: "GET_STARTED"
+        title: i18n.__("menu.tomorrows_menu"),
+        payload: "TOMORROWS_MENU"
       }
     ]);
 
@@ -197,51 +197,9 @@ module.exports = class Receive {
       payload === "GITHUB"
     ) {
       response = Response.genNuxMessage(this.user);
-    } else if (
-      payload.includes("CURATION") ||
-      payload.includes("COUPON") ||
-      payload.includes("PRODUCT_LAUNCH")
-    ) {
-      let curation = new Curation(this.user, this.webhookEvent);
-      response = curation.handlePayload(payload);
-    } else if (payload.includes("CARE")) {
-      let care = new Care(this.user, this.webhookEvent);
-      response = care.handlePayload(payload);
-    } else if (payload.includes("ORDER")) {
-      response = Order.handlePayload(payload);
-    } else if (payload.includes("CSAT")) {
-      response = Survey.handlePayload(payload);
-    } else if (payload.includes("CHAT-PLUGIN")) {
-      response = [
-        Response.genText(i18n.__("chat_plugin.prompt")),
-        Response.genText(i18n.__("get_started.guidance")),
-        Response.genQuickReply(i18n.__("get_started.help"), [
-          {
-            title: i18n.__("care.order"),
-            payload: "CARE_ORDER"
-          },
-          {
-            title: i18n.__("care.billing"),
-            payload: "CARE_BILLING"
-          },
-          {
-            title: i18n.__("care.other"),
-            payload: "CARE_OTHER"
-          }
-        ])
-      ];
-    } else if (payload.includes("BOOK_APPOINTMENT")) {
-      response = [
-        Response.genText(i18n.__("care.appointment")),
-        Response.genText(i18n.__("care.end"))
-      ];
-    } else if (payload === "RN_WEEKLY") {
-      response = {
-        text: `[INFO]The following message is a sample weekly recurring notification. This is usually sent outside the initial 24-hour window for users who have opted in to weekly messages.`
-      };
-
+    } 
     //adding menu options
-    } else if (payload === "TODAYS_MENU") {
+    else if (payload === "TODAYS_MENU") {
       response = Order.handlePayload(payload);
     } else if (payload === "TOMORROWS_MENU") {
       response = Order.handlePayload(payload);
