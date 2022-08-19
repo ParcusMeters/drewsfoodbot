@@ -20,33 +20,6 @@ module.exports = class Order {
     let response;
 
     switch (payload) {
-      case "TRACK_ORDER":
-        response = Response.genQuickReply(i18n.__("order.prompt"), [
-          {
-            title: i18n.__("order.account"),
-            payload: "LINK_ORDER"
-          },
-          {
-            title: i18n.__("order.search"),
-            payload: "SEARCH_ORDER"
-          },
-          {
-            title: i18n.__("menu.help"),
-            payload: "CARE_ORDER"
-          }
-        ]);
-        break;
-
-      case "SEARCH_ORDER":
-        response = Response.genText(i18n.__("order.number"));
-        break;
-
-      case "ORDER_NUMBER":
-        response = Response.genImageTemplate(
-          `${config.appUrl}/order.png`,
-          i18n.__("order.status")
-        );
-        break;
 
       case "TODAYS_MENU":
         response = Response.genMenuImage(
@@ -58,18 +31,6 @@ module.exports = class Order {
         response = Response.genMenuImage(
           `${config.appUrl}/Tomorrows_Feed.pdf`
         );
-        break;
-
-
-      case "LINK_ORDER":
-        response = [
-          Response.genText(i18n.__("order.dialog")),
-          Response.genText(i18n.__("order.searching")),
-          Response.genImageTemplate(
-            `${config.appUrl}/order.png`,
-            i18n.__("order.status")
-          )
-        ];
         break;
     }
 
