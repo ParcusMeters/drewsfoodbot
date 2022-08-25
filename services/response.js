@@ -138,7 +138,6 @@ module.exports = class Response {
       type: "web_url",
       title: title,
       url: url,
-      messenger_extensions: true
     };
 
     return response;
