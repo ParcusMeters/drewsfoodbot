@@ -49,12 +49,7 @@ module.exports = class Order {
         break;
 
       case "TODAYS_MENU":
-        response = Response.genButtonTemplate("Todays Feed", {
-          type:"web_url",
-          url: createLink(true),
-          title:"Todays Feed",
-          webview_height_ratio: "full"
-        });
+        response = Response.genButtonTemplate("Todays Feed", Response.genWebUrlButton("Todays Feed", createLink(true)));
         break;
   
       case "TOMORROWS_MENU":
