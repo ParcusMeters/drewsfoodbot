@@ -49,7 +49,7 @@ module.exports = class Order {
         break;
 
       case "TODAYS_MENU":
-        response = Response.genWebUrlButton(i18n.__("food_menu.today"), "https://students.standrewscollege.edu.au/wp-content/uploads/2022/08/FRIDAY-1.pdf");
+        response = Response.genText("https://students.standrewscollege.edu.au/wp-content/uploads/2022/08/FRIDAY-1.pdf");
         break;
   
       case "TOMORROWS_MENU":
