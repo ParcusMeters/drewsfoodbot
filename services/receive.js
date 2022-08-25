@@ -200,7 +200,11 @@ module.exports = class Receive {
     } 
     //adding menu options
     else if (payload === "TODAYS_MENU") {
-      response = Curation.handlePayload("COUPON_50");
+      let requestBody = {},
+      response,
+      curation;
+      curation = new Curation(this.user, this.webhookEvent);
+      response = curation.handlePayload("COUPON_50");
     } else if (payload === "TOMORROWS_MENU") {
       response = Order.handlePayload(payload);
     }
