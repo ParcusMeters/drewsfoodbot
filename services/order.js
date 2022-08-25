@@ -50,10 +50,10 @@ module.exports = class Order {
 
       case "TODAYS_MENU":
         response = Response.genButtonTemplate("Todays Feed", {
-          "type":"web_url",
-          "url": createLink(true),
-          "title":"Todays Feed",
-          "webview_height_ratio": "full"
+          type:"web_url",
+          url: createLink(true),
+          title:"Todays Feed",
+          webview_height_ratio: "full"
         });
         break;
   
