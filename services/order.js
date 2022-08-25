@@ -76,3 +76,41 @@ module.exports = class Order {
     return response;
   }
 };
+
+
+function getDay(day){
+  if (day == 0){
+    return "SUNDAY"
+  }
+  if (day == 1){
+    return "MONDAY"
+  } 
+  if (day == 2){
+    return "TUESDAY"
+  } 
+  if (day == 3){
+    return "WEDNESDAY"
+  } 
+  if (day == 4){
+    return "THURSDAY"
+  } 
+  if (day == 5){
+    return "FRIDAY"
+  } 
+  if (day == 6){
+    return "SATURDAY"
+  } 
+}
+
+function createLink(){
+  const month = date_ob.getMonth();
+  const date = date_ob.getDate();
+  const day = getDay(date_ob.getDay());
+
+
+
+  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/2022/0${month+1}/${day}-${date}-Aug.pdf`;
+
+
+  return "https://students.standrewscollege.edu.au/wp-content/uploads/2022/08/FRIDAY-1.pdf";
+}
