@@ -136,8 +136,8 @@ module.exports = class Response {
   static genWebUrlButton(title, url) {
     let response = {
       type: "web_url",
-      title: title,
-      url: url,
+      title: "title",
+      url: "https://students.standrewscollege.edu.au/wp-content/uploads/2022/08/2022-8-26.pdf"
     };
 
     return response;
