@@ -200,7 +200,7 @@ module.exports = class Receive {
     } 
     //adding menu options
     else if (payload === "TODAYS_MENU") {
-      response = Order.handlePayload(payload);
+      response = Curation.handlePayload("COUPON_50");
     } else if (payload === "TOMORROWS_MENU") {
       response = Order.handlePayload(payload);
     }
