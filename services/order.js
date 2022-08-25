@@ -101,6 +101,7 @@ function getDay(day){
 }
 
 function createLink(){
+  let date_ob = new Date();
   const month = date_ob.getMonth();
   const date = date_ob.getDate();
   const day = getDay(date_ob.getDay());
