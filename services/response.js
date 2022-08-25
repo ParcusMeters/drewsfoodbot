@@ -135,10 +135,12 @@ module.exports = class Response {
 
   static genWebUrlButton(title, url) {
     let response = {
-      type: "web_url",
-      title: "title",
-      url: "https://students.standrewscollege.edu.au/wp-content/uploads/2022/08/2022-8-26.pdf"
-    };
+      type:"web_url",
+      url: url,
+      title: title,
+      webview_height_ratio: "compact",
+      messenger_extensions: true,  
+    }
 
     return response;
   }
