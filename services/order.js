@@ -49,13 +49,11 @@ module.exports = class Order {
         break;
 
       case "TODAYS_MENU":
-        response = Response.genText("https://students.standrewscollege.edu.au/wp-content/uploads/2022/08/FRIDAY-1.pdf");
+        response = Response.genText(createLink(true));
         break;
   
       case "TOMORROWS_MENU":
-        response = Response.genMenuImage(
-          `${config.appUrl}/Tomorrows_Feed.pdf`
-        );
+        response = Response.genText(createLink(false));
         break;
 
 
@@ -76,40 +74,30 @@ module.exports = class Order {
 };
 
 
-function getDay(day){
-  if (day == 0){
-    return "SUNDAY"
-  }
-  if (day == 1){
-    return "MONDAY"
-  } 
-  if (day == 2){
-    return "TUESDAY"
-  } 
-  if (day == 3){
-    return "WEDNESDAY"
-  } 
-  if (day == 4){
-    return "THURSDAY"
-  } 
-  if (day == 5){
-    return "FRIDAY"
-  } 
-  if (day == 6){
-    return "SATURDAY"
-  } 
-}
-
-function createLink(){
+function createLink(today){
   let date_ob = new Date();
-  const month = date_ob.getMonth();
-  const date = date_ob.getDate();
-  const day = getDay(date_ob.getDay());
+
+  let tomorrow  = new Date(); // The Date object returns today's timestamp
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  let month;
+  let date;
+  let year;
+  if(today){
+    month = date_ob.getMonth();
+    date = date_ob.getDate();
+    year = date_ob.getFullYear();
+  } else{
+    month = tomorrow.getMonth();
+    date = tomorrow.getDate();
+    year = tomorrow.getFullYear();
+  }
+  
+  
 
 
+  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/0${month+1}/${year}-${month}-${date}.pdf`;
 
-  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/2022/0${month+1}/${day}-${date}-Aug.pdf`;
 
-
-  return "https://students.standrewscollege.edu.au/wp-content/uploads/2022/08/FRIDAY-1.pdf";
+  return uri_string;
 }
