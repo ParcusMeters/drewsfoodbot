@@ -49,9 +49,7 @@ module.exports = class Order {
         break;
 
       case "TODAYS_MENU":
-        response = Response.genMenuImage(
-          `${config.appUrl}/Todays_Feed.pdf`
-        );
+        response = Response.genWebUrlButton("Todays Feed", createLink());
         break;
   
       case "TOMORROWS_MENU":
