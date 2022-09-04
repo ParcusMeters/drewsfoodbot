@@ -96,7 +96,7 @@ module.exports = class Receive {
     } else if (message.includes("image")){
       response = Order.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu")){
-      response = Order.handlePayload("TODAYS_MENU");
+      response = Response.genMenuMessage(this.user);
     }
     else {
       response = [
