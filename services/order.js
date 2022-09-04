@@ -86,19 +86,19 @@ function createLink(today){
   let date;
   let year;
   if(today){
-    month = date_ob.getMonth();
-    date = date_ob.getDate();
+    month = String(date_ob.getMonth() + 1).padStart(2, '0');
+    date = String(date_ob.getDate()).padStart(2, '0');
     year = date_ob.getFullYear();
   } else{
-    month = tomorrow.getMonth();
-    date = tomorrow.getDate();
+    month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    date = String(tomorrow.getDate()).padStart(2, '0');
     year = tomorrow.getFullYear();
   }
   
   
 
 
-  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/0${month+1}/${year}-${month+1}-${date}.pdf`;
+  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/${month}/${year}-${month}-${date}.pdf`;
 
 
   return uri_string;
