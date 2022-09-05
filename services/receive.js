@@ -98,7 +98,7 @@ module.exports = class Receive {
     }else if (message.includes("can i see the menu")){
       response = Response.genMenuMessage(this.user);
     }else if (message.includes("help")){
-      response = Response.genText("A human user will be with you shortly to assist.");
+      response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }
     else {
       response = [
