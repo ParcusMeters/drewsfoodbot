@@ -97,6 +97,10 @@ module.exports = class Receive {
       response = Order.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu")){
       response = Response.genMenuMessage(this.user);
+    }else if (message.includes("tomorrows")){
+      response = Order.handlePayload("TOMORROWS_MENU");
+    }else if (message.includes("todays")){
+      response = Order.handlePayload("TODAYS");
     }else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }
