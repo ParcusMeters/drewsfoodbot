@@ -99,6 +99,8 @@ module.exports = class Receive {
       response = Response.genMenuMessage(this.user);
     }else if (message.includes("can i see the menu")){
       response = Response.genMenuMessage(this.user);
+    }else if (message.includes("Can I see the menu?")){
+      response = Response.genMenuMessage(this.user);
     }else if (message.includes("tomorrows")){
       response = Order.handlePayload("TOMORROWS_MENU");
     }else if (message.includes("todays")){
