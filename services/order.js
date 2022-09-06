@@ -51,11 +51,17 @@ module.exports = class Order {
       case "TODAYS_MENU":
 
         /* response = Response.genButtonTemplate("Todays Feed", Response.genWebUrlButton("Todays Feed", createLink(true))); */
-        response = Response.genText(createLink(true));
+        response = [
+          response = Response.genText("Here is todays menu!"),
+          response = Response.genText(createLink(true))
+        ];
         break;
   
       case "TOMORROWS_MENU":
-        response = Response.genText(createLink(false));
+        response = [
+          response = Response.genText("Here is tomorrows menu!"),
+          response = Response.genText(createLink(false))
+        ];
         break;
 
 
