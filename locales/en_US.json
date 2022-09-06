@@ -16,7 +16,7 @@
     "welcome": "Hi {{userFirstName}}! Welcome to Drew's Bot.",
     "guidance": "At any time, use the menu below to navigate through the features. Type 'food menu' for the options to appear again in the future.",
     "help": "What can I help you with?",
-    "greeting": "Hi {{userFirstName}}, welcome to Drew's Bot!"
+    "greeting": "Hi, welcome to Drew's Bot!"
   },
   "leadgen": {
     "promo": "Hi {{userFirstName}}, finding great outfits is now easier and more convenient.",
