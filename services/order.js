@@ -92,14 +92,14 @@ function createLink(today){
   let date;
   let year;
   if(today){
-    /* month = String(date_ob.getMonth() + 1).padStart(2, '0');
-    date = String(date_ob.getDate()).padStart(2, '0'); */
+    month = String(date_ob.getMonth() + 1).padStart(2, '0');
+    /* date = String(date_ob.getDate()).padStart(2, '0'); */
 
-    month = date_ob.getMonth() + 1
+    /* month = date_ob.getMonth() + 1 */
     date = String(date_ob.getDate()).padStart(2, '0');
     year = date_ob.getFullYear();
   } else{
-    month = tomorrow.getMonth() + 1;
+    month = String(tomorrow.getMonth() + 1).padStart(2, '0');
     date = String(tomorrow.getDate()).padStart(2, '0');
     year = tomorrow.getFullYear();
   }
