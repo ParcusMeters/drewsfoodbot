@@ -107,7 +107,7 @@ function createLink(today){
   
 
 
-  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/0${month}/${year}-${month}-${date}.pdf`;
+  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/${month}/${year}-${month}-${date}.pdf`;
 
 
   return uri_string;
