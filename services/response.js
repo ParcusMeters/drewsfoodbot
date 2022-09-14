@@ -185,7 +185,7 @@ module.exports = class Response {
       }
     ]);
 
-    return [welcome, curation];
+    return [curation];
   }
   static genMenuImage(url) {
     let response = {
