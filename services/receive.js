@@ -228,7 +228,7 @@ module.exports = class Receive {
     }
     else {
       response = {
-        text: `This is a default postback message for payload: ${payload}!`
+        text: `This feature is currently under development`
       };
     }
 
