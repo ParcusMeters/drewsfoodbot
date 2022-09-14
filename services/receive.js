@@ -219,6 +219,8 @@ module.exports = class Receive {
       response = Order.handlePayload(payload);
     } else if (payload === "TOMORROWS_MENU") {
       response = Order.handlePayload(payload);
+    }else if (payload === "CAN I SEE THE MENU?"){
+      response = Response.genMenuMessage(this.user);
     }
     else {
       response = {
