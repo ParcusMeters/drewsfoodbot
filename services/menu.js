@@ -15,7 +15,7 @@ const Response = require("./response"),
   i18n = require("../i18n.config"),
   config = require("./config");
 
-module.exports = class Order {
+module.exports = class Menu {
   static handlePayload(payload) {
     let response;
 

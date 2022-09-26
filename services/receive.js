@@ -11,7 +11,7 @@
 "use strict";
 
 const Curation = require("./curation"),
-  Order = require("./order"),
+  Menu = require("./menu"),
   Response = require("./response"),
   Care = require("./care"),
   Survey = require("./survey"),
@@ -94,7 +94,7 @@ module.exports = class Receive {
     } else if (message.includes("food menu")){
       response = Response.genMenuMessage(this.user);
     } else if (message.includes("image")){
-      response = Order.handlePayload("TODAYS_MENU");
+      response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu?")){
       response = Response.genMenuMessage(this.user);
     }else if (message.includes("can i see the menu")){
@@ -102,13 +102,13 @@ module.exports = class Receive {
     }else if (message.includes("Can I see the menu?")){
       response = Response.genMenuMessage(this.user);
     }else if (message.includes("tomorrows")){
-      response = Order.handlePayload("TOMORROWS_MENU");
+      response = Menu.handlePayload("TOMORROWS_MENU");
     }else if (message.includes("tomorrow's")){
-      response = Order.handlePayload("TOMORROWS_MENU");
+      response = Menu.handlePayload("TOMORROWS_MENU");
     }else if (message.includes("todays's")){
-      response = Order.handlePayload("TODAYS_MENU");
+      response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("todays")){
-      response = Order.handlePayload("TODAYS_MENU");
+      response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }
@@ -216,15 +216,15 @@ module.exports = class Receive {
     } 
     //adding menu options
     else if (payload === "TODAYS_MENU") {
-      response = Order.handlePayload(payload);
+      response = Menu.handlePayload(payload);
     } else if (payload === "TOMORROWS_MENU") {
-      response = Order.handlePayload(payload);
+      response = Menu.handlePayload(payload);
     }else if (payload === "CAN I SEE THE MENU?"){
       response = Response.genMenuMessage(this.user);
     }else if (payload === "TODAY’S MENU"){
-      response = Order.handlePayload("TODAYS_MENU");
+      response = Menu.handlePayload("TODAYS_MENU");
     }else if (payload === "TOMORROW’S MENU"){
-      response = Order.handlePayload("TOMORROWS_MENU");
+      response = Menu.handlePayload("TOMORROWS_MENU");
     }
     else {
       response = {
