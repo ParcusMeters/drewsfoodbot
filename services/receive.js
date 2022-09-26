@@ -10,11 +10,8 @@
 
 "use strict";
 
-const Curation = require("./curation"),
-  Menu = require("./menu"),
+const Menu = require("./menu"),
   Response = require("./response"),
-  Care = require("./care"),
-  Survey = require("./survey"),
   GraphApi = require("./graph-api"),
   i18n = require("../i18n.config");
 
@@ -318,27 +315,6 @@ module.exports = class Receive {
         };
       }
     }
-
-    setTimeout(() => GraphApi.callSendApi(requestBody), delay);
-  }
-  sendRecurringMessage(notificationMessageToken, delay) {
-    console.log("Received Recurring Message token");
-    let requestBody = {},
-      response,
-      curation;
-    //This example will send summer collection
-    curation = new Curation(this.user, this.webhookEvent);
-    response = curation.handlePayload("CURATION_BUDGET_50_DINNER");
-    // Check if there is delay in the response
-    if (response === undefined) {
-      return;
-    }
-    requestBody = {
-      recipient: {
-        notification_messages_token: notificationMessageToken
-      },
-      message: response
-    };
 
     setTimeout(() => GraphApi.callSendApi(requestBody), delay);
   }
