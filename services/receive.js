@@ -46,6 +46,8 @@ module.exports = class Receive {
         responses = this.handleReferral();
       } else if (event.optin) {
         responses = this.handleOptIn();
+      } else if (event.reaction){
+        responses = this.handleReaction()
       }
     } catch (error) {
       console.error(error);
@@ -106,6 +108,8 @@ module.exports = class Receive {
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("todays")){
       response = Menu.handlePayload("TODAYS_MENU");
+    }else if (message.includes("today's")){
+      response = Menu.handlePayload("TODAYS_MENU")
     }else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }
@@ -262,6 +266,10 @@ module.exports = class Receive {
       message: response
     };
     GraphApi.callSendApi(requestBody);
+  }
+
+  handleReaction(payload){
+    
   }
 
   sendMessage(response, delay = 0, isUserRef) {
