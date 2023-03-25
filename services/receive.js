@@ -116,12 +116,8 @@ module.exports = class Receive {
         Response.genText(i18n.__("get_started.guidance")),
         Response.genQuickReply(i18n.__("get_started.help"), [
           {
-            title: i18n.__("menu.todays_menu"),
-            payload: "TODAYS_MENU"
-          },
-          {
-            title: i18n.__("menu.tomorrows_menu"),
-            payload: "TOMORROWS_MENU"
+            title: "Menu Options",
+            payload: "BUTTON"
           }
         ])
       ];

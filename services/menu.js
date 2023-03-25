@@ -37,7 +37,7 @@ module.exports = class Menu {
         break;
 
       case "BUTTON":
-        response = [Response.genWebUrlButton("button", "www.bbc.co")];
+        response = Response.genMenuButton();
         break;
     }
 
