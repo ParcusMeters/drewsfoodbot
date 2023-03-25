@@ -44,7 +44,7 @@ module.exports = class Menu {
     return response;
   }
 
-  createLink(today){
+  static createLink(today){
     let date_ob = new Date();
   
     let tomorrow  = new Date(); // The Date object returns today's timestamp
