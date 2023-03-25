@@ -149,7 +149,7 @@ module.exports = class Response {
             },
             {
               type: 'web_url',
-              url: "https://www.cornell.edu",
+              url: createLink(false),
               title: "Tomorrow's Menu"
             }
           ]
