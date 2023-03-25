@@ -100,18 +100,6 @@ module.exports = class Receive {
       response = Response.genMenuButton();
     }else if (message.includes("Can I see the menu?")){
       response = Response.genMenuButton();
-    }else if (message.includes("tomorrows")){
-      response = Menu.handlePayload("TOMORROWS_MENU");
-    }else if (message.includes("tomorrow's")){
-      response = Menu.handlePayload("TOMORROWS_MENU");
-    }else if (message.includes("todays's")){
-      response = Menu.handlePayload("TODAYS_MENU");
-    }else if (message.includes("todays")){
-      response = Menu.handlePayload("TODAYS_MENU");
-    }else if (message.includes("today's")){
-      response = Menu.handlePayload("TODAYS_MENU")
-    }else if (message.includes("Today’s menu\\")){
-      response = Menu.handlePayload("TODAYS_MENU");
     }
     else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
@@ -221,18 +209,8 @@ module.exports = class Receive {
       response = Response.genNuxMessage(this.user);
     } 
     //adding menu options
-    else if (payload === "TODAYS_MENU") {
-      response = Menu.handlePayload(payload);
-    } else if (payload === "TOMORROWS_MENU") {
-      response = Menu.handlePayload(payload);
-    }else if (payload === "CAN I SEE THE MENU?"){
+    else if (payload === "CAN I SEE THE MENU?"){
       response = Response.genMenuButton();
-    }else if (payload === "TODAY’S MENU"){
-      response = Menu.handlePayload("TODAYS_MENU");
-    }else if (payload === "TOMORROW’S MENU"){
-      response = Menu.handlePayload("TOMORROWS_MENU");
-    }else if (payload === "BUTTON"){
-      response = Menu.handlePayload(payload);
     }
     else {
       response = {
