@@ -138,8 +138,6 @@ module.exports = class Response {
       type:"web_url",
       url: "https://www.deez.com",
       title: "Visit Deez.com",
-      webview_height_ratio: "compact",
-      messenger_extensions: true,  
     }
 
     return response;
