@@ -145,6 +145,16 @@ module.exports = class Response {
     return response;
   }
 
+  static genTestButton(payload){
+    let responder = {
+        type: "postback",
+        title: "Menu",
+        payload: payload
+    };
+    return response;
+
+  }
+
   static genNuxMessage(user) {
     let welcome = this.genText(
       i18n.__("get_started.welcome", {
@@ -171,6 +181,8 @@ module.exports = class Response {
 
     return [welcome, guide, curation];
   }
+
+  
 
 
   static genMenuMessage(user) {

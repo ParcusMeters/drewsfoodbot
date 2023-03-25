@@ -219,7 +219,7 @@ module.exports = class Receive {
     else if (payload === "TODAYS_MENU") {
       response = Menu.handlePayload(payload);
     } else if (payload === "TOMORROWS_MENU") {
-      response = Menu.handlePayload(payload);
+      response = Response.genButtonTemplate(payload);
     }else if (payload === "CAN I SEE THE MENU?"){
       response = Response.genMenuMessage(this.user);
     }else if (payload === "TODAY’S MENU"){
