@@ -37,7 +37,7 @@ module.exports = class Menu {
         break;
 
       case "BUTTON":
-        response = Response.genPostbackButton("button", payload);
+        response = Response.genWebUrlButton("button", "www.bbc.co");
     }
 
     return response;
