@@ -144,12 +144,12 @@ module.exports = class Response {
           buttons: [
             {
               type: 'web_url',
-              url: "www.bbc.co",
+              url: "https://www.bbc.co",
               title: "Today's Menu"
             },
             {
               type: 'postback',
-              url: "www.cornell.edu",
+              url: "https://www.cornell.edu",
               title: "Tomorrow's Menu"
             }
           ]
