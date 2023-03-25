@@ -260,11 +260,10 @@ function createLink(today){
   }
   
 
-  //const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/${month}/${year}-${month}-${date}.pdf`;
+  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/${month}/${year}-${month}-${date}.pdf`;
   //const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/02/${year}-${month}-${date}.pdf`;
   //change when fixed
 
-  const uri_string = 'https://students.standrewscollege.edu.au/wp-content/uploads/2023/03/2024-03-25.pdf'
   return uri_string;
 };
 
