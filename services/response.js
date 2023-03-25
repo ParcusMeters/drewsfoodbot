@@ -133,11 +133,11 @@ module.exports = class Response {
     return response;
   }
 
-  static genWebUrlButton(title, url) {
+  static genWebUrlButton() {
     let response = {
       type:"web_url",
-      url: url,
-      title: title,
+      url: "https://www.deez.com",
+      title: "Visit Deez.com",
       webview_height_ratio: "compact",
       messenger_extensions: true,  
     }
