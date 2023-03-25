@@ -110,7 +110,7 @@ module.exports = class Receive {
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("today's")){
       response = Menu.handlePayload("TODAYS_MENU")
-    }else if (message.includes("Today’s menu")){
+    }else if (message.includes("Today’s menu\\")){
       response = Menu.handlePayload("TODAYS_MENU");
     }
     else if (message.includes("help")){
