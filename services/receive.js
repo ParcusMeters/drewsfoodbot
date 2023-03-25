@@ -112,6 +112,8 @@ module.exports = class Receive {
       response = Menu.handlePayload("TODAYS_MENU")
     }else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
+    }else if (message.includes("button")){
+      response = Response.genPostbackButton("button", "BUTTON");
     }
     else {
       response = [
@@ -219,13 +221,15 @@ module.exports = class Receive {
     else if (payload === "TODAYS_MENU") {
       response = Menu.handlePayload(payload);
     } else if (payload === "TOMORROWS_MENU") {
-      response = Response.genButtonTemplate(payload);
+      response = Menu.handlePayload(payload);
     }else if (payload === "CAN I SEE THE MENU?"){
       response = Response.genMenuMessage(this.user);
     }else if (payload === "TODAY’S MENU"){
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (payload === "TOMORROW’S MENU"){
       response = Menu.handlePayload("TOMORROWS_MENU");
+    }else if (payload === "BUTTON"){
+      response = Menu.handlePayload(payload);
     }
     else {
       response = {

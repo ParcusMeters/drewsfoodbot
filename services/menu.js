@@ -35,6 +35,9 @@ module.exports = class Menu {
           Response.genText(createLink(false))
         ];
         break;
+
+      case "BUTTON":
+        response = Response.genPostbackButton("button", payload);
     }
 
     return response;
