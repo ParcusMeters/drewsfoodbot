@@ -100,6 +100,8 @@ module.exports = class Receive {
       response = Response.genMenuButton();
     }else if (message.includes("Can I see the menu?")){
       response = Response.genMenuButton();
+    }else if (message.includes("menu options")){
+      response = Response.genMenuButton();
     }
     else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
