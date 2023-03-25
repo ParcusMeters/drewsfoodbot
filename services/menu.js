@@ -38,7 +38,6 @@ module.exports = class Menu {
 
       case "BUTTON":
         response = [Response.genWebUrlButton("button", "www.bbc.co")];
-        console.log("generating URL");
         break;
     }
 
