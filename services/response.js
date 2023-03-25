@@ -148,7 +148,7 @@ module.exports = class Response {
               title: "Today's Menu"
             },
             {
-              type: 'postback',
+              type: 'web_url',
               url: "https://www.cornell.edu",
               title: "Tomorrow's Menu"
             }
