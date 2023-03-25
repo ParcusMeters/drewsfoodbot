@@ -145,14 +145,31 @@ module.exports = class Response {
     return response;
   }
 
-  static genTestButton(payload){
-    let response = {
-        type: "postback",
-        title: "Menu",
-        payload: payload
-    };
-    return response;
+  static genTestButton(){
+    response = {
 
+      message: {
+        attachment: {
+          type: 'template',
+          payload: {
+            template_type: 'button',
+            text: 'What do you want to do next?',
+            buttons: [
+              {
+                type: 'web_url',
+                url: 'https://www.example.com',
+                title: 'Open Website'
+              },
+              {
+                type: 'postback',
+                title: 'Start Chatting',
+                payload: 'TODAYS_MENU'
+              }
+            ]
+          }
+        }
+      }
+    }
   }
 
   static genNuxMessage(user) {
