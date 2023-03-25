@@ -257,5 +257,21 @@ function createLink(today){
   const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/${month}/${year}-${month}-${date}.pdf`;
   //const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/02/${year}-${month}-${date}.pdf`;
   //change when fixed
+
+  checkIfValid(url)
+
+
   return uri_string;
 };
+
+function checkIfValid(url){
+  fetch(url).then(response => {
+  if (!response.ok) {
+    console.log('404 error occurred');
+  } else {
+    console.log('Page is OK');
+  }
+}).catch(error => {
+  console.error('Error occurred:', error);
+});
+}
