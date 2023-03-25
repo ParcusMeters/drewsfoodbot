@@ -135,27 +135,33 @@ module.exports = class Response {
   }
 
   static genMenuButton() {
-    let response = {
-      attachment: {
-        type: 'template',
-        payload: {
-          template_type: 'button',
-          text: 'What menu would you like to see?',
-          buttons: [
-            {
-              type: 'web_url',
-              url: createLink(true),
-              title: "Today's"
-            },
-            {
-              type: 'web_url',
-              url: createLink(false),
-              title: "Tomorrow's"
-            }
-          ]
+    if(!isURLValid(createLink(true))){
+      return this.genText("The menu has not been uploaded yet. Please check back later.");
+    }
+    else{
+      let response = {
+        attachment: {
+          type: 'template',
+          payload: {
+            template_type: 'button',
+            text: 'What menu would you like to see?',
+            buttons: [
+              {
+                type: 'web_url',
+                url: createLink(true),
+                title: "Today's"
+              },
+              {
+                type: 'web_url',
+                url: createLink(false),
+                title: "Tomorrow's"
+              }
+            ]
+          }
         }
       }
     }
+    
 
     return response;
   }
@@ -254,24 +260,25 @@ function createLink(today){
   }
   
 
-  const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/${month}/${year}-${month}-${date}.pdf`;
+  //const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/${month}/${year}-${month}-${date}.pdf`;
   //const uri_string = `https://students.standrewscollege.edu.au/wp-content/uploads/${year}/02/${year}-${month}-${date}.pdf`;
   //change when fixed
 
-  checkIfValid(uri_string);
-
-
+  const uri_string = 'https://students.standrewscollege.edu.au/wp-content/uploads/2023/03/2024-03-25.pdf'
   return uri_string;
 };
 
-function checkIfValid(url){
+function isURLValid(url){
   fetch(url).then(response => {
   if (!response.ok) {
     console.log('404 error occurred');
+    return false;
   } else {
     console.log('Page is OK');
+    return true;
   }
 }).catch(error => {
   console.error('Error occurred:', error);
+  return false;
 });
 }
