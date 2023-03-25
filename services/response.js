@@ -134,7 +134,7 @@ module.exports = class Response {
     return response;
   }
 
-  static genWebUrlButton() {
+  static genMenuButton() {
     let response = {
       attachment: {
         type: 'template',
@@ -144,12 +144,12 @@ module.exports = class Response {
           buttons: [
             {
               type: 'web_url',
-              url: Menu.createLink(true),
+              url: createLink(true),
               title: "Today's"
             },
             {
               type: 'web_url',
-              url: Menu.createLink(false),
+              url: createLink(false),
               title: "Tomorrow's"
             }
           ]
