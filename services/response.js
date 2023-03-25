@@ -139,26 +139,24 @@ module.exports = class Response {
     if(isURLValid(createLink(true)) === false){
       return this.genText("The menu has not been uploaded yet. Please check back later.");
     }
-    else{
-      let response = {
-        attachment: {
-          type: 'template',
-          payload: {
-            template_type: 'button',
-            text: 'What menu would you like to see?',
-            buttons: [
-              {
-                type: 'web_url',
-                url: createLink(true),
-                title: "Today's"
-              },
-              {
-                type: 'web_url',
-                url: createLink(false),
-                title: "Tomorrow's"
-              }
-            ]
-          }
+    let response = {
+      attachment: {
+        type: 'template',
+        payload: {
+          template_type: 'button',
+          text: 'What menu would you like to see?',
+          buttons: [
+            {
+              type: 'web_url',
+              url: createLink(true),
+              title: "Today's"
+            },
+            {
+              type: 'web_url',
+              url: createLink(false),
+              title: "Tomorrow's"
+            }
+          ]
         }
       }
     }
