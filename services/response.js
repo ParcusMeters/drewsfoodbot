@@ -144,7 +144,7 @@ module.exports = class Response {
           buttons: [
             {
               type: 'web_url',
-              url: "https://www.bbc.co",
+              url: createLink(true),
               title: "Today's Menu"
             },
             {
