@@ -11,7 +11,7 @@
 "use strict";
 
 const i18n = require("../i18n.config"),
-Menu = require("./menu");
+fetch = require('node-fetch');
 
 module.exports = class Response {
   static genQuickReply(text, quickReplies) {
