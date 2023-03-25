@@ -135,9 +135,25 @@ module.exports = class Response {
 
   static genWebUrlButton() {
     let response = {
-      type:"web_url",
-      url: "https://www.deez.com",
-      title: "Visit Deez.com",
+      attachment: {
+        type: 'template',
+        payload: {
+          template_type: 'button',
+          text: 'What do you want to do next?',
+          buttons: [
+            {
+              type: 'web_url',
+              url: 'https://www.example.com',
+              title: 'Open Website'
+            },
+            {
+              type: 'postback',
+              title: 'Start Chatting',
+              payload: 'TODAYS_MENU'
+            }
+          ]
+        }
+      }
     }
 
     return response;
