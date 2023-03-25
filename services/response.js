@@ -140,17 +140,17 @@ module.exports = class Response {
         type: 'template',
         payload: {
           template_type: 'button',
-          text: 'What do you want to do next?',
+          text: 'What menu would you like to see?',
           buttons: [
             {
               type: 'web_url',
-              url: createLink(true),
-              title: "Today's Menu"
+              url: Menu.createLink(true),
+              title: "Today's"
             },
             {
               type: 'web_url',
-              url: createLink(false),
-              title: "Tomorrow's Menu"
+              url: Menu.createLink(false),
+              title: "Tomorrow's"
             }
           ]
         }
