@@ -146,7 +146,7 @@ module.exports = class Response {
   }
 
   static genTestButton(payload){
-    let responder = {
+    let response = {
         type: "postback",
         title: "Menu",
         payload: payload

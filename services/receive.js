@@ -113,7 +113,7 @@ module.exports = class Receive {
     }else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }else if (message.includes("button")){
-      response = Response.genWebUrlButton("button", "www.bbc.co");
+      response = Response.genPostbackButton("Menu Button","TODAYS_MENU");
     }
     else {
       response = [
