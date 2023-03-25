@@ -210,6 +210,9 @@ module.exports = class Receive {
     else if (payload === "CAN I SEE THE MENU?"){
       response = Response.genMenuButton();
     }
+    else if (payload === "BUTTON"){
+      response = Response.genMenuButton();
+    }
     else {
       response = {
         text: `This feature is currently under development`
