@@ -146,11 +146,10 @@ module.exports = class Response {
   }
 
   static genTestButton(){
-    response = 
-      {
-        "type": "web_url",
-        "title": "Visit Deez.com",
-        "url": "https://www.deez.com"
+    response = {
+        type: "web_url",
+        title: "Visit Deez.com",
+        url: "https://www.deez.com"
       
     }
     return response;
