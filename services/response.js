@@ -10,7 +10,8 @@
 
 "use strict";
 
-const i18n = require("../i18n.config");
+const i18n = require("../i18n.config"),
+Menu = require("./menu");
 
 module.exports = class Response {
   static genQuickReply(text, quickReplies) {
@@ -143,13 +144,13 @@ module.exports = class Response {
           buttons: [
             {
               type: 'web_url',
-              url: 'https://www.example.com',
-              title: 'Open Website'
+              url: Menu.createLink(true),
+              title: "Today's Menu"
             },
             {
               type: 'postback',
-              title: 'Start Chatting',
-              payload: 'TODAYS_MENU'
+              url: Menu.createLink(false),
+              title: "Tomorrow's Menu"
             }
           ]
         }
