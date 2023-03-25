@@ -110,7 +110,10 @@ module.exports = class Receive {
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("today's")){
       response = Menu.handlePayload("TODAYS_MENU")
-    }else if (message.includes("help")){
+    }else if (message.includes("Today’s menu")){
+      response = Menu.handlePayload("TODAYS_MENU");
+    }
+    else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }else if (message.includes("button")){
       response = Response.genPostbackButton("Menu Button","TODAYS_MENU");
