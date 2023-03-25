@@ -170,6 +170,7 @@ module.exports = class Response {
         }
       }
     }
+    return response;
   }
 
   static genNuxMessage(user) {
