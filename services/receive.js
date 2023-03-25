@@ -91,15 +91,15 @@ module.exports = class Receive {
 
       //added features
     } else if (message.includes("food menu")){
-      response = Response.genMenuButton;
+      response = Response.genMenuButton();
     } else if (message.includes("image")){
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu?")){
-      response = Response.genMenuButton;
+      response = Response.genMenuButton();
     }else if (message.includes("can i see the menu")){
-      response = Response.genMenuButton;
+      response = Response.genMenuButton();
     }else if (message.includes("Can I see the menu?")){
-      response = Response.genMenuButton;
+      response = Response.genMenuButton();
     }else if (message.includes("tomorrows")){
       response = Menu.handlePayload("TOMORROWS_MENU");
     }else if (message.includes("tomorrow's")){
@@ -226,7 +226,7 @@ module.exports = class Receive {
     } else if (payload === "TOMORROWS_MENU") {
       response = Menu.handlePayload(payload);
     }else if (payload === "CAN I SEE THE MENU?"){
-      response = Response.genMenuMessage(this.user);
+      response = Response.genMenuButton();
     }else if (payload === "TODAY’S MENU"){
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (payload === "TOMORROW’S MENU"){
