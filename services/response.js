@@ -146,26 +146,12 @@ module.exports = class Response {
   }
 
   static genTestButton(){
-    response = {
-      attachment: {
-        type: 'template',
-        payload: {
-          template_type: 'button',
-          text: 'What do you want to do next?',
-          buttons: [
-            {
-              type: 'web_url',
-              url: 'https://www.example.com',
-              title: 'Open Website'
-            },
-            {
-              type: 'postback',
-              title: 'Start Chatting',
-              payload: 'TODAYS_MENU'
-            }
-          ]
-        }
-      }
+    response = 
+      {
+        "type": "web_url",
+        "title": "Visit Deez.com",
+        "url": "https://www.deez.com"
+      
     }
     return response;
   }
