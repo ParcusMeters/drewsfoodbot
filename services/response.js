@@ -136,7 +136,7 @@ module.exports = class Response {
 
   static genMenuButton() {
     console.log(!isURLValid(createLink(true)));
-    if(isURLValid(createLink(true)) === false){
+    if(isURLValid(createLink(true)) === false || isURLValid(createLink(false)) === false){
       return this.genText("The menu has not been uploaded yet. Please check back later.");
     }
     let response = {
