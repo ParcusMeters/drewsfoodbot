@@ -138,9 +138,19 @@ module.exports = class Response {
     const url1 = createLink(true);
     const url2 = createLink(false);
 
-    console.log(isURLValid(url1))
+    const valid1 = null;
+    const valid2 = null;
 
-    if (!isURLValid(url1) || !isURLValid(url2)) {
+
+    isURLValid(url1).then(result => {
+      valid1 = result;
+    });
+
+    isURLValid(url2).then(result => {
+      valid2 = result;
+    });
+
+    if (!valid1 || !valid2) {
       console.log("Currently working on validating URLs:", !isURLValid(url1), !isURLValid(url2));
       return this.genText("The menu has not been uploaded yet. Please check back later.");
     }
@@ -272,6 +282,9 @@ function createLink(today){
   console.log(uri_string);
   return uri_string;
 };
+
+console.log(isURLValid(url1))
+
 
 function isURLValid(url){
   fetch(url).then(response => {
