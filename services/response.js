@@ -134,19 +134,27 @@ module.exports = class Response {
     return response;
   }
 
-  static genMenuButton() {
+
+
+
+  static async genMenuButton() {
     const url1 = createLink(true);
     const url2 = createLink(false);
 
-    const valid1 = isURLValid(url1)
-    const valid2 = isURLValid(url2)
+    try{
+      const valid1 = await isURLValid(url1)
+      const valid2 = await isURLValid(url2)
 
 
-    if(!isURLValid(url1)){
-      return this.genText("The menu has not been uploaded yet. Please try again later.")
+      if(!valid1){
+        return this.genText("The menu has not been uploaded yet. Please try again later.")
+      }
+      if(!valid2){
+        return this.genText("The menu has not been uploaded yet. Please try again later.")
+      }
     }
-    if(!isURLValid(url2)){
-      return this.genText("The menu has not been uploaded yet. Please try again later.")
+    catch{
+      
     }
    
 
@@ -294,5 +302,6 @@ function isURLValid(url){
   return false;
 });
 }
+
 
 
