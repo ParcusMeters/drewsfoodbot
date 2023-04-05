@@ -138,6 +138,8 @@ module.exports = class Response {
     const url1 = createLink(true);
     const url2 = createLink(false);
 
+    console.log(isURLValid(url1))
+
     if (!isURLValid(url1) || !isURLValid(url2)) {
       console.log("Currently working on validating URLs:", !isURLValid(url1), !isURLValid(url2));
       return this.genText("The menu has not been uploaded yet. Please check back later.");
@@ -273,12 +275,12 @@ function createLink(today){
 
 function isURLValid(url){
   fetch(url).then(response => {
-  if (!response.ok) {
-    console.log('404 error occurred');
-    return false;
-  } else {
-    console.log('Page is OK: ', url);
-    return true;
+    if (!response.ok) {
+      console.log('404 error occurred');
+      return false;
+    } else {
+      console.log('Page is OK: ', url);
+      return true;
   }
 }).catch(error => {
   console.error('Error occurred:', error);
