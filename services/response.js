@@ -142,10 +142,35 @@ module.exports = class Response {
     const valid2 = isURLValid(url2)
 
 
-    if (!valid1 || !valid2) {
-      console.log("Currently working on validating URLs:", !isURLValid(url1), !isURLValid(url2));
-      return this.genText("The menu has not been uploaded yet. Please check back later.");
-    }
+    isURLValid(url1)
+    .then(isValid => {
+      if (isValid) {
+        // Code to execute if the URL is valid
+        console.log("The URL is valid:", url);
+      } else {
+        // Code to execute if the URL is invalid
+        console.log("The URL is invalid:", url);
+        return this.genText("The menu has not been uploaded yet. Please check back later.");
+      }
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+    });
+
+    isURLValid(url2)
+    .then(isValid => {
+      if (isValid) {
+        // Code to execute if the URL is valid
+        console.log("The URL is valid:", url);
+      } else {
+        // Code to execute if the URL is invalid
+        console.log("The URL is invalid:", url);
+        return this.genText("The menu has not been uploaded yet. Please check back later.");
+      }
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
+    });
 
 
     let response = {
@@ -290,4 +315,8 @@ function isURLValid(url){
   console.error('Error occurred:', error);
   return false;
 });
+}
+
+function handleValidURL(url) {
+  
 }
