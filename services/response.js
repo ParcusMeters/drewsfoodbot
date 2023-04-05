@@ -135,11 +135,15 @@ module.exports = class Response {
   }
 
   static genMenuButton() {
-    if(!isURLValid(createLink(true)) || !isURLValid(createLink(false))){
-      console.log("Currently working on validating URL:", !isURLValid(createLink(true)), !isURLValid(createLink(false)));
+    const url1 = createLink(true);
+    const url2 = createLink(false);
 
+    if (!isURLValid(url1) || !isURLValid(url2)) {
+      console.log("Currently working on validating URLs:", !isURLValid(url1), !isURLValid(url2));
       return this.genText("The menu has not been uploaded yet. Please check back later.");
     }
+
+    
     let response = {
       attachment: {
         type: 'template',
