@@ -288,19 +288,21 @@ function createLink(today){
 
 
 
-function isURLValid(url){
-  fetch(url).then(response => {
-    if (!response.ok) {
-      console.log('404 error occurred');
+function isURLValid(url) {
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        console.log('404 error occurred');
+        return false;
+      } else {
+        console.log('Page is OK: ', url);
+        return true;
+      }
+    })
+    .catch(error => {
+      console.error('Error occurred:', error);
       return false;
-    } else {
-      console.log('Page is OK: ', url);
-      return true;
-  }
-}).catch(error => {
-  console.error('Error occurred:', error);
-  return false;
-});
+    });
 }
 
 
