@@ -137,7 +137,7 @@ module.exports = class Response {
 
 
 
-  static async genMenuButton() {
+  static genMenuButton() {
     const url1 = createLink(true);
     const url2 = createLink(false);
 
