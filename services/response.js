@@ -142,18 +142,18 @@ module.exports = class Response {
     const url2 = createLink(false);
 
 
-    const valid1 = isURLValid(url1)
-    const valid2 = isURLValid(url2)
+    const valid1 = isURLValid(url1);
+    const valid2 = isURLValid(url2);
 
-    console.log(valid1)
-    console.log(valid2)
+    console.log(valid1);
+    console.log(valid1);
 
 
     if(!valid1){
-      return this.genText("The menu has not been uploaded yet. Please try again later.")
+      return this.genText("The menu has not been uploaded yet. Please try again later.");
     }
     if(!valid2){
-      return this.genText("The menu has not been uploaded yet. Please try again later.")
+      return this.genText("The menu has not been uploaded yet. Please try again later.");
     }
   
    
