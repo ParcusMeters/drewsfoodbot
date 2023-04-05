@@ -275,7 +275,6 @@ function createLink(today){
   return uri_string;
 };
 
-console.log(isURLValid(url1))
 
 
 function isURLValid(url){
