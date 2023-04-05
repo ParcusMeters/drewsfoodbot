@@ -138,17 +138,9 @@ module.exports = class Response {
     const url1 = createLink(true);
     const url2 = createLink(false);
 
-    const valid1 = null;
-    const valid2 = null;
+    const valid1 = isURLValid(url1)
+    const valid2 = isURLValid(url2)
 
-
-    isURLValid(url1).then(result => {
-      valid1 = result;
-    });
-
-    isURLValid(url2).then(result => {
-      valid2 = result;
-    });
 
     if (!valid1 || !valid2) {
       console.log("Currently working on validating URLs:", !isURLValid(url1), !isURLValid(url2));
