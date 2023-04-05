@@ -143,7 +143,7 @@ module.exports = class Response {
       return this.genText("The menu has not been uploaded yet. Please check back later.");
     }
 
-    
+
     let response = {
       attachment: {
         type: 'template',
@@ -277,7 +277,7 @@ function isURLValid(url){
     console.log('404 error occurred');
     return false;
   } else {
-    console.log('Page is OK');
+    console.log('Page is OK: ', url);
     return true;
   }
 }).catch(error => {
