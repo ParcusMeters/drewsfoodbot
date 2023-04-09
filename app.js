@@ -27,23 +27,6 @@ const express = require("express"),
 var users = {};
 
 //enable database
-var connection = mysql.createConnection({
-  host: config.awsHost,
-  user: config.awsUser,
-  password: config.awsPassword,
-  port     : 3306
-});
-
-connection.connect(function(err) {
-  if (err) {
-    console.error('Database connection failed: ' + err.stack);
-    return;
-  }
-
-  console.log('Connected to database.');
-});
-
-connection.end();
 
 // Parse application/x-www-form-urlencoded
 app.use(
