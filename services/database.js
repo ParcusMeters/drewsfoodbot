@@ -1,6 +1,24 @@
 const mysql = require('mysql');
 const config = require('./config');
 
+exports.handler = (event, context) => {
+
+  var connection = mysql.createConnection({
+       host     : '...',
+       user     : '...',
+       password : '...',
+       port     : 3306,
+       database: 'ebdb',
+       debug    :  false
+   });
+
+   connection.connect(function(err) {
+     if (err) context.fail();
+     else context.succeed('Success');
+   });
+
+};
+
 module.exports = class Database {
   static connection = mysql.createConnection({
     host: config.awsHost,
@@ -10,11 +28,32 @@ module.exports = class Database {
     port     : 3306,
     debug    :  false
   });
+  
+  static inititiate(){
+    exports.handler = (event, context) => {
+
+      var connection = mysql.createConnection({
+          host: config.awsHost,
+          user: config.awsUser,
+          password: config.awsPassword,
+          database: config.awsDatabase,
+          port     : 3306,
+          debug    :  false
+       });
+   
+       connection.connect(function(err) {
+         if (err) throw err;
+         console.log("Connected");
+       });
+   
+   };
+  }
 
   static initialise(){
     this.connect();
     this.createTable;
   }
+  
 
   static connect() {
     this.connection.connect((err) => {
