@@ -26,7 +26,25 @@ const express = require("express"),
 var users = {};
 
 //enable database
-Database.inititiate();
+var connection = mysql.createConnection({
+  host: config.awsHost,
+  user: config.awsUser,
+  password: config.awsPassword,
+  database: config.awsDatabase,
+  port: 3306,
+  debug: false
+});
+
+connection.connect(function(err) {
+  if (err) {
+    console.error('Error connecting to database:', err);
+    return;
+  }
+  console.log('Connected to database');
+  // do something with the database connection here
+  // ...
+  connection.end(); // always end the connection when you're done
+});
 
 // Parse application/x-www-form-urlencoded
 app.use(

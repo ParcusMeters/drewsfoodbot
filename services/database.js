@@ -1,23 +1,7 @@
 const mysql = require('mysql');
 const config = require('./config');
 
-exports.handler = (event, context) => {
 
-  var connection = mysql.createConnection({
-       host     : '...',
-       user     : '...',
-       password : '...',
-       port     : 3306,
-       database: 'ebdb',
-       debug    :  false
-   });
-
-   connection.connect(function(err) {
-     if (err) context.fail();
-     else context.succeed('Success');
-   });
-
-};
 
 module.exports = class Database {
   static connection = mysql.createConnection({
