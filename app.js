@@ -21,7 +21,8 @@ const express = require("express"),
   config = require("./services/config"),
   i18n = require("./i18n.config"),
   Database = require("./services/database"),
-  app = express();
+  app = express(),
+  mysql = require('mysql');
 
 var users = {};
 
