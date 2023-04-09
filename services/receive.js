@@ -13,7 +13,8 @@
 const Menu = require("./menu"),
   Response = require("./response"),
   GraphApi = require("./graph-api"),
-  i18n = require("../i18n.config");
+  i18n = require("../i18n.config"),
+  Database = require("./database");
 
 module.exports = class Receive {
   constructor(user, webhookEvent, isUserRef) {
@@ -102,11 +103,13 @@ module.exports = class Receive {
       response = Response.genMenuButton();
     }else if (message.includes("Menu Options")){
       response = Response.genMenuButton();
-    }
-    else if (message.includes("help")){
+    }else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }else if (message.includes("button")){
       response = Response.genWebUrlButton();
+    }else if (message.includes("like")){
+      Database.newRating(true);
+      response = Response.genText("You liked the menu.")
     }
     else {
       response = [

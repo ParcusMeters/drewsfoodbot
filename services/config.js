@@ -21,7 +21,11 @@ const ENV_VARS = [
   "APP_SECRET",
   "VERIFY_TOKEN",
   "APP_URL",
-  "SHOP_URL"
+  "SHOP_URL",
+  "AWS_RDS_HOST",
+  "AWS_RDS_USER",
+  "AWS_RDS_PASSWORD",
+  "AWS_RDS_DATABASE"
 ];
 
 module.exports = {
@@ -47,6 +51,13 @@ module.exports = {
 
   // Preferred port (default to 3000)
   port: process.env.PORT || 3000,
+
+  // AWS RDS Config
+  awsHost: process.env.AWS_RDS_HOST,
+  awsUser: process.env.AWS_RDS_HOST,
+  awsPassword: process.env.AWS_RDS_HOST,
+  awsDatabase: process.env.AWS_RDS_HOST,
+
 
   // Base URL for Messenger Platform API calls
   get apiUrl() {
