@@ -31,21 +31,19 @@ var connection = mysql.createConnection({
   host: config.awsHost,
   user: config.awsUser,
   password: config.awsPassword,
-  database: config.awsDatabase,
-  port: 3306,
-  debug: false
+  port     : 3306
 });
 
 connection.connect(function(err) {
   if (err) {
-    console.error('Error connecting to database:', err);
+    console.error('Database connection failed: ' + err.stack);
     return;
   }
-  console.log('Connected to database');
-  // do something with the database connection here
-  // ...
-  connection.end(); // always end the connection when you're done
+
+  console.log('Connected to database.');
 });
+
+connection.end();
 
 // Parse application/x-www-form-urlencoded
 app.use(
