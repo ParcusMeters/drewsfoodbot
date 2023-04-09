@@ -8,27 +8,8 @@ module.exports = class Database {
     host: config.awsHost,
     user: config.awsUser,
     password: config.awsPassword,
-    database: config.awsDatabase,
-    port     : 3306,
-    debug    :  false
   });
   
-  static inititiate(){
-    exports.handler = (event, context) => {
-
-      var connection = mysql.createConnection({
-          host: config.awsHost,
-          user: config.awsUser,
-          password: config.awsPassword,
-       });
-   
-       connection.connect(function(err) {
-         if (err) throw err;
-         console.log("Connected");
-       });
-   
-   };
-  }
 
   static initialise(){
     this.connect();
