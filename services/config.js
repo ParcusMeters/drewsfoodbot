@@ -54,9 +54,9 @@ module.exports = {
 
   // AWS RDS Config
   awsHost: process.env.AWS_RDS_HOST,
-  awsUser: process.env.AWS_RDS_HOST,
-  awsPassword: process.env.AWS_RDS_HOST,
-  awsDatabase: process.env.AWS_RDS_HOST,
+  awsUser: process.env.AWS_RDS_USER,
+  awsPassword: process.env.AWS_RDS_PASSWORD,
+  awsDatabase: process.env.AWS_RDS_DATABASE,
 
 
   // Base URL for Messenger Platform API calls
