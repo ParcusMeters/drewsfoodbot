@@ -27,6 +27,7 @@ const express = require("express"),
 var users = {};
 
 //enable database
+Database.initialise();
 
 // Parse application/x-www-form-urlencoded
 app.use(
