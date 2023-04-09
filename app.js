@@ -20,13 +20,13 @@ const express = require("express"),
   User = require("./services/user"),
   config = require("./services/config"),
   i18n = require("./i18n.config"),
-  //Database = require("./services/database"),
+  Database = require("./services/database"),
   app = express();
 
 var users = {};
 
 //enable database
-//Database.initialise();
+Database.initialise();
 
 // Parse application/x-www-form-urlencoded
 app.use(

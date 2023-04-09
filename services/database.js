@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const config = require('./services/config');
+const config = require('./config');
 
 module.exports = class Database {
   static connection = mysql.createConnection({
