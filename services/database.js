@@ -20,6 +20,7 @@ module.exports = class Database {
       console.log('Connected to database!');
     });
   }
+  //adding comment
 
   static createTable() {
     this.connection.query('CREATE TABLE IF NOT EXISTS ratings (\
