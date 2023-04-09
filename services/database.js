@@ -6,7 +6,9 @@ module.exports = class Database {
     host: config.awsHost,
     user: config.awsUser,
     password: config.awsPassword,
-    database: config.awsDatabase
+    database: config.awsDatabase,
+    port     : 3306,
+    debug    :  false
   });
 
   static initialise(){
