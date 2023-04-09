@@ -14,6 +14,7 @@ module.exports = class Database {
   static initialise(){
     this.connect();
     this.createTable;
+    this.close();
   }
   
 
