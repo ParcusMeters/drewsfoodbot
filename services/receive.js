@@ -108,7 +108,7 @@ module.exports = class Receive {
     }else if (message.includes("button")){
       response = Response.genWebUrlButton();
     }else if (message.includes("like")){
-      Database.newRating(true);
+      Database.newRating(true, Response.createLink(true));
       response = Response.genText("You liked the menu.")
     }
     else {

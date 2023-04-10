@@ -253,6 +253,10 @@ module.exports = class Response {
     return response;
   }
 
+  static createLink(today){
+    return createLink(today);
+  }
+
 
 };
 
