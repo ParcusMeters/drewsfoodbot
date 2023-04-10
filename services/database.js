@@ -8,13 +8,13 @@ module.exports = class Database {
     host: config.awsHost,
     user: config.awsUser,
     password: config.awsPassword,
-    database: ''
+    database: 'drews-bot'
   });
   
 
   static initialise(){
     this.connect();
-    this.createTable();
+    //this.createTable();
     this.close();
   }
   
