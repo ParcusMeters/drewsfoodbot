@@ -13,7 +13,7 @@ module.exports = class Database {
 
   static initialise(){
     this.connect();
-    this.createTable;
+    this.createTable();
     this.close();
   }
   
