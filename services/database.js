@@ -36,7 +36,6 @@ module.exports = class Database {
     );', (err, rows) => {
       if (err) throw err;
       console.log('Ratings table created or already exists!');
-      this.close();
     });
   }
 
