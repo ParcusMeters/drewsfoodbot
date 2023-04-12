@@ -117,6 +117,8 @@ module.exports = class Receive {
       Database.retrieveData();
     }else if (message.includes("connect")){
       Database.connect();
+    }else if (message.includes("review")){
+      response = Response.genRatingButton(null);
     }
     else {
       response = [

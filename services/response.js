@@ -134,7 +134,30 @@ module.exports = class Response {
     return response;
   }
 
-
+  static genRatingButton(payload){
+    let response = {
+      attachment: {
+        type: 'template',
+        payload: {
+          template_type: 'button',
+          text: 'What menu would you like to see?',
+          buttons: [
+            {
+              type: 'postback',
+              payload: postback,
+              title: "😀"
+            },
+            {
+              type: 'web_url',
+              payload: postback,
+              title: "😠"
+            }
+          ]
+        }
+      }
+    }
+    return response;
+  }
 
 
   static genMenuButton() {
@@ -156,8 +179,7 @@ module.exports = class Response {
       return this.genText("The menu has not been uploaded yet. Please try again later.");
     }
   
-   
-
+  
 
     let response = {
       attachment: {
