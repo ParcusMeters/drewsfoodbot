@@ -18,6 +18,8 @@ module.exports = class Database {
   }
   
 
+
+
   static connect() {
     this.connection.connect((err) => {
       if (err) throw err;
@@ -77,7 +79,7 @@ module.exports = class Database {
   }
 
 
-  static retriveData(){
+  static retrieveData(){
     let query;
 
     query = 'SELECT * FROM menu_ratings';

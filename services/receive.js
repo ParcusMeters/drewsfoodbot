@@ -111,7 +111,9 @@ module.exports = class Receive {
       Database.newRating(true, Response.createLink(true));
       response = Response.genText("You liked the menu.");
     }else if (message.includes("data")){
-      Database.retriveData();
+      Database.retrieveData();
+    }else if (message.includes("connect")){
+      Database.connect();
     }
     else {
       response = [
