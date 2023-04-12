@@ -22,7 +22,6 @@ module.exports = class Database {
 
   static connect() {
     this.connection.connect((err) => {
-      if (err) throw err;
       console.log('Connected to database!');
     });
   }
