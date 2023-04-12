@@ -107,9 +107,12 @@ module.exports = class Receive {
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }else if (message.includes("button")){
       response = Response.genWebUrlButton();
-    }else if (message.includes("like")){
+    }else if (message.includes("👍")){
       Database.newRating(true, Response.createLink(true));
       response = Response.genText("You liked the menu.");
+    }else if (message.includes("👎")){
+      Database.newRating(false, Response.createLink(true));
+      response = Response.genText("You disliked the menu.");
     }else if (message.includes("data")){
       Database.retrieveData();
     }else if (message.includes("connect")){
