@@ -13,6 +13,7 @@ module.exports = class Database {
   
 
   static initialise(){
+    this.connect();
     this.createTable();
   }
   
@@ -66,7 +67,6 @@ module.exports = class Database {
   }
 
   static newRating(like, url){
-    this.connect();
     let query;
     if (like === true){
       query = `INSERT INTO menu_ratings (likes, dislikes, url) VALUES (1, 0, '${url}')ON DUPLICATE KEY UPDATE likes = likes + 1;`;
@@ -76,17 +76,13 @@ module.exports = class Database {
     Database.executeQuery(query, null);
 
     console.log("User rated menu.");
-
-    this.close();
   }
 
 
   static retriveData(){
-    this.connect();
     let query;
 
     query = 'SELECT * FROM menu_ratings';
     Database.executeQuery(query, null);
-    this.close();
   }
 }
