@@ -13,7 +13,6 @@ module.exports = class Database {
   
 
   static initialise(){
-    this.connect();
     this.createTable();
   }
   
@@ -27,14 +26,16 @@ module.exports = class Database {
   //adding comment
 
   static createTable() {
-    this.connection.query('CREATE TABLE IF NOT EXISTS ratings (\
-      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
+    this.connect();
+    this.connection.query('CREATE TABLE IF NOT EXISTS menu_ratings (\
+      id INT NOT NULL AUTO_INCREMENT,\
       likes INT,\
       dislikes INT,\
-      url TEXT\
+      url TEXT PRIMARY KEY\
     );', (err, rows) => {
       if (err) throw err;
       console.log('Ratings table created or already exists!');
+      this.close();
     });
   }
 
@@ -58,14 +59,31 @@ module.exports = class Database {
     });
   }
 
+
+  static hasReviewBeenMade(url){
+
+  }
+
   static newRating(like, url){
+    this.connect();
     let query;
     if (like === true){
-      query = `UPDATE ratings SET likes = likes + 1 WHERE url = '${url}';`;
+      query = `INSERT INTO menu_ratings (likes, dislikes, url) VALUES (1, 0, '${url}')ON DUPLICATE KEY UPDATE likes = likes + 1;`;
     } else {
-      query = `UPDATE ratings SET dislikes = dislikes + 1 WHERE url = '${url}';`;
+      query = `INSERT INTO menu_ratings (likes, dislikes, url) VALUES (0, 1, '${url}')ON DUPLICATE KEY UPDATE dislikes = dislikes + 1;`;
     }
+    Database.executeQuery(query, null);
+    
+    console.log("User rated menu.");
 
-    Database.executeQuery(query, null)
+    this.close();
+  }
+
+
+  static retriveData(){
+    let query;
+
+    query = 'SELECT * FROM menu_ratings';
+    Database.executeQuery(query, null);
   }
 }
