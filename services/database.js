@@ -28,10 +28,10 @@ module.exports = class Database {
   static createTable() {
     this.connect();
     this.connection.query('CREATE TABLE IF NOT EXISTS menu_ratings (\
-      id INT NOT NULL AUTO_INCREMENT,\
+      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
       likes INT,\
       dislikes INT,\
-      url TEXT PRIMARY KEY,\
+      url TEXT,\
       UNIQUE KEY url_idx (url(255))\
     );', (err, rows) => {
       if (err) throw err;
