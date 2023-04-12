@@ -42,6 +42,7 @@ module.exports = class Database {
   }
 
   static executeQuery(query, callback) {
+    this.connect();
     this.connection.query(query, (err, rows) => {
       if (err) throw err;
 
@@ -73,7 +74,13 @@ module.exports = class Database {
     } else {
       query = `INSERT INTO menu_ratings (likes, dislikes, url) VALUES (0, 1, '${url}')ON DUPLICATE KEY UPDATE dislikes = dislikes + 1;`;
     }
-    Database.executeQuery(query, null);
+    try{
+      Database.executeQuery(query, null);
+
+    }catch (error){
+      console.log(error.name)
+      console.log("Already connected!")
+    }
 
     console.log("User rated menu.");
   }
