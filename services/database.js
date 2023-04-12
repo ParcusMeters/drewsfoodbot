@@ -31,7 +31,8 @@ module.exports = class Database {
       id INT NOT NULL AUTO_INCREMENT,\
       likes INT,\
       dislikes INT,\
-      url TEXT PRIMARY KEY\
+      url TEXT PRIMARY KEY,\
+      UNIQUE KEY url_idx (url(255))\
     );', (err, rows) => {
       if (err) throw err;
       console.log('Ratings table created or already exists!');
@@ -73,7 +74,7 @@ module.exports = class Database {
       query = `INSERT INTO menu_ratings (likes, dislikes, url) VALUES (0, 1, '${url}')ON DUPLICATE KEY UPDATE dislikes = dislikes + 1;`;
     }
     Database.executeQuery(query, null);
-    
+
     console.log("User rated menu.");
 
     this.close();
