@@ -109,7 +109,9 @@ module.exports = class Receive {
       response = Response.genWebUrlButton();
     }else if (message.includes("like")){
       Database.newRating(true, Response.createLink(true));
-      response = Response.genText("You liked the menu.")
+      response = Response.genText("You liked the menu.");
+    }else if (message.includes("data")){
+      Database.retriveData();
     }
     else {
       response = [

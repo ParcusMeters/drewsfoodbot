@@ -82,9 +82,11 @@ module.exports = class Database {
 
 
   static retriveData(){
+    this.connect();
     let query;
 
     query = 'SELECT * FROM menu_ratings';
     Database.executeQuery(query, null);
+    this.close();
   }
 }
