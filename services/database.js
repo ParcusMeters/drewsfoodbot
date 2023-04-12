@@ -27,7 +27,6 @@ module.exports = class Database {
   //adding comment
 
   static createTable() {
-    this.connect();
     this.connection.query('CREATE TABLE IF NOT EXISTS menu_ratings (\
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
       likes INT,\
