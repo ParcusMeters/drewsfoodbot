@@ -134,7 +134,8 @@ module.exports = class Response {
     return response;
   }
 
-  static genRatingButton(payload){
+  static genRatingButton(){
+
     let response = {
       attachment: {
         type: 'template',
@@ -143,13 +144,13 @@ module.exports = class Response {
           text: 'What menu would you like to see?',
           buttons: [
             {
-              type: 'postback',
-              payload: postback,
+              type: 'web_url',
+              url: createLink(true),
               title: "😀"
             },
             {
               type: 'web_url',
-              payload: postback,
+              url: createLink(false),
               title: "😠"
             }
           ]
