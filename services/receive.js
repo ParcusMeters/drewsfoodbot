@@ -122,7 +122,7 @@ module.exports = class Receive {
     }else if (message.includes("connect")){
       Database.connect();
     }else if (message.includes("disc")){
-      Database.disconnect();
+      Database.close();
     }
     else {
       response = [
