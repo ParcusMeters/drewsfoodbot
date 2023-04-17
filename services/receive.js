@@ -228,8 +228,11 @@ module.exports = class Receive {
     else if (payload === "CAN I SEE THE MENU?"){
       response = Response.genMenuButton();
     }
-    else if (payload === "BUTTON"){
-      response = Response.genMenuButton();
+    else if (payload === "LIKE_MENU"){
+      Database.newRating(true, Response.createLink(true));
+    }
+    else if (payload === "DISLIKE_MENU"){
+      Database.newRating(false, Response.createLink(true));
     }
     else {
       response = {
