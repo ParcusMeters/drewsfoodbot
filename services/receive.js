@@ -121,7 +121,7 @@ module.exports = class Receive {
       response = Response.genRatingButton("BUTTON");
     }else if (message.includes("connect")){
       Database.connect();
-    }else if (message.includes("disconnect")){
+    }else if (message.includes("disc")){
       Database.disconnect();
     }
     else {
