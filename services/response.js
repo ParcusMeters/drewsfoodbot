@@ -141,17 +141,17 @@ module.exports = class Response {
         type: 'template',
         payload: {
           template_type: 'button',
-          text: 'What menu would you like to see?',
+          text: "What do you think of today's menu?",
           buttons: [
             {
               type: 'postback',
               payload: "DISLIKE_MENU",
-              title: "Tomorrow's"
+              title: "😠"
             },
             {
               type: 'postback',
               payload: "LIKE_MENU",
-              title: "Today's"
+              title: "😀"
             }
           ]
         }
