@@ -145,13 +145,13 @@ module.exports = class Response {
           buttons: [
             {
               type: 'web_url',
-              url: createLink(true),
-              title: "😀"
+              url: "DISLIKE_MENU",
+              title: "Tomorrow's"
             },
             {
-              type: 'web_url',
-              url: createLink(false),
-              title: "😠"
+              type: 'postback',
+              postback: "LIKE_MENU",
+              title: "Today's"
             }
           ]
         }
@@ -190,13 +190,13 @@ module.exports = class Response {
           text: "What do you think about today's menu",
           buttons: [
             {
-              type: 'postback',
-              postback: "LIKE_MENU",
+              type: 'web_url',
+              url: createLink(true),
               title: "Today's"
             },
             {
               type: 'web_url',
-              url: "DISLIKE_MENU",
+              url: createLink(false),
               title: "Tomorrow's"
             }
           ]
