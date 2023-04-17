@@ -145,7 +145,7 @@ module.exports = class Response {
           buttons: [
             {
               type: 'web_url',
-              url: "DISLIKE_MENU",
+              postback: "DISLIKE_MENU",
               title: "Tomorrow's"
             },
             {
