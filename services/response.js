@@ -144,13 +144,13 @@ module.exports = class Response {
           text: 'What menu would you like to see?',
           buttons: [
             {
-              type: 'web_url',
-              postback: "DISLIKE_MENU",
+              type: 'postback',
+              payload: "DISLIKE_MENU",
               title: "Tomorrow's"
             },
             {
               type: 'postback',
-              postback: "LIKE_MENU",
+              payload: "LIKE_MENU",
               title: "Today's"
             }
           ]
