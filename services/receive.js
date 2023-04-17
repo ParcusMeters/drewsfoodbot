@@ -119,6 +119,10 @@ module.exports = class Receive {
       Database.connect();
     }else if (message.includes("review")){
       response = Response.genRatingButton("BUTTON");
+    }else if (message.includes("connect")){
+      Database.connect();
+    }else if (message.includes("disconnect")){
+      Database.disconnect();
     }
     else {
       response = [
@@ -169,6 +173,8 @@ module.exports = class Receive {
 
     return this.handlePayload(payload);
   }
+
+  
 
   // Handles postbacks events
   handlePostback() {
