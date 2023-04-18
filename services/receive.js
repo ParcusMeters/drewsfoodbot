@@ -125,6 +125,8 @@ module.exports = class Receive {
       Database.close();
     }else if (message.includes("deeznuts")){
       response = Response.genReviewMessage()
+    }else if (message.includes("anothertest")){
+      response = [Response.genMenuButton(),Response.genReviewMessage()]
     }
 
     else {

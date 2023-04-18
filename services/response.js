@@ -160,6 +160,7 @@ module.exports = class Response {
     return response;
   }
 
+  
 
   static genMenuButton() {
     const url1 = createLink(true);
