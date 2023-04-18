@@ -123,7 +123,7 @@ module.exports = class Receive {
       Database.connect();
     }else if (message.includes("disc")){
       Database.close();
-    }else if (message.includes("test_review")){
+    }else if (message.includes("deeznuts")){
       response = Response.genReviewMessage()
     }
 
@@ -137,8 +137,8 @@ module.exports = class Receive {
         Response.genText(i18n.__("get_started.guidance")),
         Response.genQuickReply(i18n.__("get_started.help"), [
           {
-            title: "Menu Options",
-            payload: "BUTTON"
+            title: "Can I see the menu?",
+            payload: "CAN I SEE THE MENU?"
           }
         ])
       ];
