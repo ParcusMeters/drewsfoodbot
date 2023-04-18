@@ -145,13 +145,13 @@ module.exports = class Response {
           buttons: [
             {
               type: 'postback',
-              payload: "DISLIKE_MENU",
-              title: "😠"
+              payload: "LIKE_MENU",
+              title: "😀"
             },
             {
               type: 'postback',
-              payload: "LIKE_MENU",
-              title: "😀"
+              payload: "DISLIKE_MENU",
+              title: "😠"
             }
           ]
         }
@@ -187,7 +187,7 @@ module.exports = class Response {
         type: 'template',
         payload: {
           template_type: 'button',
-          text: "What do you think about today's menu",
+          text: "What menu would you like to see?",
           buttons: [
             {
               type: 'web_url',
