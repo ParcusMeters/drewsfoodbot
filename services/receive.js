@@ -123,7 +123,10 @@ module.exports = class Receive {
       Database.connect();
     }else if (message.includes("disc")){
       Database.close();
+    }else if (message.includes("test_review")){
+      response = Response.genReviewMessage()
     }
+
     else {
       response = [
         Response.genText(

@@ -245,7 +245,20 @@ module.exports = class Response {
     return [welcome, guide, curation];
   }
 
-  
+  static genReviewMessage(){
+    let curation = this.genQuickReply("What do you think about today's menu?", [
+      {
+        title: "😀",
+        payload: "LIKE_MENU"
+      },
+      {
+        title: "😠",
+        payload: "DISLIKE_MENU"
+      }
+    ]);
+
+    return [curation]
+  }
 
 
   static genMenuMessage(user) {
