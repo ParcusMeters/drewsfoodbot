@@ -183,7 +183,7 @@ module.exports = class Response {
   
   
 
-    let response = {
+    let menu = {
       attachment: {
         type: 'template',
         payload: {
@@ -205,7 +205,7 @@ module.exports = class Response {
       }
     }
     
-
+    response = [menu, this.genReviewMessage()];
     return response;
   }
 
