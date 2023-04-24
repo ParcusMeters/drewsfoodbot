@@ -205,8 +205,7 @@ module.exports = class Response {
       }
     }
     
-    response = [menu, this.genReviewMessage()];
-    return response;
+    return menu;
   }
 
   static genTestButton(){

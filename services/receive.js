@@ -61,6 +61,7 @@ module.exports = class Receive {
     if (Array.isArray(responses)) {
       let delay = 0;
       for (let response of responses) {
+        console.log(response);
         this.sendMessage(response, delay * 2000, this.isUserRef);
         delay++;
       }
@@ -126,7 +127,7 @@ module.exports = class Receive {
     }else if (message.includes("deeznuts")){
       response = Response.genReviewMessage();
     }else if (message.includes("anothertest")){
-      response = [Response.genMenuButton(),Response.genReviewMessage()];
+      response = [Response.genMenuButton(), Response.genReviewMessage()];
     }
 
     else {
