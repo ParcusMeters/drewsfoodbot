@@ -129,8 +129,8 @@ module.exports = class Receive {
     }else if (message.includes("anothertest")){
       response = [
         Response.genText("deez"),
-        Response.genReviewMessage(),
-        Response.genMenuButton()
+        Response.genMenuButton(),
+        Response.genRatingButton()
         ];
     }
 
