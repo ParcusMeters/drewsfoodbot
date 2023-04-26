@@ -59,11 +59,11 @@ module.exports = class Receive {
     }
 
     if (Array.isArray(responses)) {
-      let delay = 2;
+      let delay = 0;
       for (let response of responses) {
         console.log(response);
         this.sendMessage(response, delay * 2000, this.isUserRef);
-        delay++;
+        delay+=4;
       }
     } else {
       this.sendMessage(responses, this.isUserRef);
