@@ -127,7 +127,7 @@ module.exports = class Receive {
     }else if (message.includes("deeznuts")){
       response = Response.genReviewMessage();
     }else if (message.includes("anothertest")){
-      console.log(this.user);
+      console.log("Hello ", this.user.firstName, " your PSID is: ", this.user.psid);
       response = [
         Response.genText("deez"),
         Response.genMenuButton(),
