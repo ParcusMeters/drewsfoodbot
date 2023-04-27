@@ -130,7 +130,9 @@ module.exports = class Receive {
       console.log("Hello ", this.user.firstName, " your PSID is: ", this.user.psid);
 
       Database.createUserTable();
-      Database.hasUserReviewedToday(this.user.psid);
+      if (Database.hasUserReviewedToday(this.user.psid)){
+        console.log("successs");
+      };
     }
 
     else {
