@@ -93,17 +93,17 @@ module.exports = class Receive {
 
       //added features
     } else if (message.includes("food menu")){
-      response = Response.genMenuButton(this.user.psid);
+      response = Response.genMenuButton(this.user.firstName);
     } else if (message.includes("image")){
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu?")){
-      response = Response.genMenuButton(this.user.psid);
+      response = Response.genMenuButton(this.user.firstName);
     }else if (message.includes("can i see the menu")){
-      response = Response.genMenuButton(this.user.psid);
+      response = Response.genMenuButton(this.user.firstName);
     }else if (message.includes("Can I see the menu?")){
-      response = Response.genMenuButton(this.user.psid);
+      response = Response.genMenuButton(this.user.firstName);
     }else if (message.includes("Menu Options")){
-      response = Response.genMenuButton(this.user.psid);
+      response = Response.genMenuButton(this.user.firstName);
     }else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
     }else if (message.includes("button")){
