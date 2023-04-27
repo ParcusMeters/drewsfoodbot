@@ -128,6 +128,9 @@ module.exports = class Receive {
       response = Response.genReviewMessage();
     }else if (message.includes("anothertest")){
       console.log("Hello ", this.user.firstName, " your PSID is: ", this.user.psid);
+
+      Database.createUserTable();
+      Database.hasUserReviewedToday(this.user.psid);
       response = [
         Response.genText("deez"),
         Response.genMenuButton(),

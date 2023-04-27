@@ -162,7 +162,7 @@ module.exports = class Response {
 
   
 
-  static genMenuButton() {
+  static genMenuButton(userPSID) {
     const url1 = createLink(true);
     const url2 = createLink(false);
 
@@ -188,7 +188,7 @@ module.exports = class Response {
         type: 'template',
         payload: {
           template_type: 'button',
-          text: "What menu would you like to see?",
+          text: `Hi '${userPSID}', what menu would you like to see?`,
           buttons: [
             {
               type: 'web_url',
