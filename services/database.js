@@ -106,17 +106,18 @@ module.exports = class Database {
   }
 
 
-  static async hasUserReviewedToday(userPSID) {
+  static hasUserReviewedToday(userPSID) {
     let query;
     
     query = `INSERT INTO user_review (has_review_been_made, user_PSID) VALUES (1, ${userPSID}) ON DUPLICATE KEY UPDATE has_review_been_made = has_review_been_made + 1;`;
-    await Database.executeQuery(query, null);
+    Database.executeQuery(query, null);
   
     query = `SELECT has_review_been_made FROM user_review WHERE user_PSID = ${userPSID};`;
-    const rows = await Database.executeQuery(query, null);
-    const hasReviewed = rows[0].has_review_been_made > 1;
-    console.log(`User has reviewed today: ${hasReviewed}`);
-    return hasReviewed;
+    return Database.executeQuery(query, (rows) => {
+      const hasReviewed = rows[0].has_review_been_made > 1;
+      console.log(`User has reviewed today: ${hasReviewed}`);
+      return hasReviewed;
+    });
   }
   
 }
