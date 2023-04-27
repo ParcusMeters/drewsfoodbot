@@ -109,10 +109,10 @@ module.exports = class Database {
   static hasUserReviewedToday(userPSID) {
     let query;
     
-    query = `INSERT INTO user_reviews (has_review_been_made, user_PSID) VALUES (1, ${userPSID}) ON DUPLICATE KEY UPDATE has_review_been_made = has_review_been_made + 1;`;
+    query = `INSERT INTO user_review (has_review_been_made, user_PSID) VALUES (1, ${userPSID}) ON DUPLICATE KEY UPDATE has_review_been_made = has_review_been_made + 1;`;
     Database.executeQuery(query, null);
   
-    query = `SELECT has_review_been_made FROM user_reviews WHERE user_PSID = ${userPSID};`;
+    query = `SELECT has_review_been_made FROM user_review WHERE user_PSID = ${userPSID};`;
     Database.executeQuery(query, (rows) => {
       const hasReviewed = rows[0].has_review_been_made > 1;
       console.log(`User has reviewed today: ${hasReviewed}`);
