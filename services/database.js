@@ -91,4 +91,35 @@ module.exports = class Database {
     query = 'SELECT * FROM menu_ratings';
     Database.executeQuery(query, null);
   }
+
+  static createUserTable(){
+    this.connection.query('CREATE TABLE IF NOT EXISTS user_review (\
+      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
+      has_review_been_made INT,\
+      user_PSID INT,\
+      UNIQUE KEY user_PSIDx (user_PSID(255))\
+    );', (err, rows) => {
+      if (err) throw err;
+      console.log('user_reviews table created or already exists!');
+    });
+
+  }
+
+
+  static hasUserReviewedToday(userPSID) {
+    let query;
+    
+    query = `INSERT INTO user_reviews (has_review_been_made, user_PSID) VALUES (1, '${userPSID}') ON DUPLICATE KEY UPDATE has_review_been_made = has_review_been_made + 1;`;
+    Database.executeQuery(query, null);
+  
+    query = `SELECT has_review_been_made FROM user_reviews WHERE user_PSID = '${userPSID}';`;
+    Database.executeQuery(query, (rows) => {
+      const hasReviewed = rows[0].has_review_been_made > 1;
+      console.log(`User has reviewed today: ${hasReviewed}`);
+      return hasReviewed;
+    });
+  }
+  
 }
+
+
