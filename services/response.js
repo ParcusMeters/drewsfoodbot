@@ -188,7 +188,7 @@ module.exports = class Response {
         type: 'template',
         payload: {
           template_type: 'button',
-          text: `Hi '${userPSID}', what menu would you like to see?`,
+          text: `What menu would you like to see?`,
           buttons: [
             {
               type: 'web_url',

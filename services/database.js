@@ -113,12 +113,16 @@ module.exports = class Database {
     Database.executeQuery(query, null);
   
     query = `SELECT has_review_been_made FROM user_review WHERE user_PSID = ${userPSID};`;
-    return Database.executeQuery(query, (rows) => {
-      const hasReviewed = rows[0].has_review_been_made > 1;
-      console.log(`User has reviewed today: ${hasReviewed}`);
-      return hasReviewed;
+    return new Promise((resolve, reject) => {
+      Database.executeQuery(query, (rows) => {
+        const hasReviewed = rows[0].has_review_been_made > 1;
+        console.log(`User has reviewed today: ${hasReviewed}`);
+        resolve(hasReviewed);
+      }, (error) => {
+        reject(error);
+      });
     });
-  }
+}
   
 }
 
