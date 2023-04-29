@@ -107,7 +107,16 @@ module.exports = class Database {
 
 
   static hasUserReviewedToday(userPSID) {
+    
+
     let query;
+
+    if (hasDateChanged()){
+      query - 'DELETE FROM user_review;';
+      Database.executeQuery(query, null);
+    }
+
+
     
     query = `INSERT INTO user_review (has_review_been_made, user_PSID) VALUES (1, ${userPSID}) ON DUPLICATE KEY UPDATE has_review_been_made = has_review_been_made + 1;`;
     Database.executeQuery(query, null);
@@ -123,7 +132,23 @@ module.exports = class Database {
       });
     });
 }
+
+
   
 }
 
+
+function hasDateChanged() {
+  var today = new Date();
+  var storedDate = localStorage.getItem("storedDate");
+  if (storedDate == null) {
+    localStorage.setItem("storedDate", today);
+    return true;
+  } else if (storedDate != today) {
+    localStorage.setItem("storedDate", today);
+    return true;
+  } else {
+    return false;
+  }
+}
 
