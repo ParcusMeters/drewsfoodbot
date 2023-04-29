@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const config = require('./config');
+const localStorage = require('localStorage');
 
 
 
@@ -111,10 +112,7 @@ module.exports = class Database {
 
     let query;
 
-    if (hasDateChanged()){
-      query - 'DELETE FROM user_review;';
-      Database.executeQuery(query, null);
-    }
+
 
 
     
@@ -138,17 +136,4 @@ module.exports = class Database {
 }
 
 
-function hasDateChanged() {
-  var today = new Date();
-  var storedDate = localStorage.getItem("storedDate");
-  if (storedDate == null) {
-    localStorage.setItem("storedDate", today);
-    return true;
-  } else if (storedDate != today) {
-    localStorage.setItem("storedDate", today);
-    return true;
-  } else {
-    return false;
-  }
-}
 
