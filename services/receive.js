@@ -269,7 +269,7 @@ module.exports = class Receive {
       response = Response.genText("Your rating has been submitted.");
     }
     else if (payload === "FAILURE"){
-       Response.genText("You have already rated the menu today.");
+      respondse = Response.genText("You have already rated the menu today.");
     }
     else {
       response = {
