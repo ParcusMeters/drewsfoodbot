@@ -253,17 +253,23 @@ module.exports = class Receive {
           // The Promise resolved successfully with a Boolean value
           if (hasReviewed) {
             console.log("The user has reviewed today.");
-            return Response.genText("You have already rated the menu today.");
+            this.handlePostback("FAILURE");
           } else {
             console.log("The user has not reviewed today.");
             Database.newRating(false, Response.createLink(true));
-            return Response.genText("Your rating has been submitted.");
+            this.handlePayload("SUCCESS");
           }
         })
         .catch((error) => {
           // The Promise rejected with an error
           console.error("Error checking if user has reviewed today:", error);
         });
+    }
+    else if (payload === "SUCCESS"){
+      response = Response.genText("Your rating has been submitted.");
+    }
+    else if (payload === "FAILURE"){
+       Response.genText("You have already rated the menu today.");
     }
     else {
       response = {
