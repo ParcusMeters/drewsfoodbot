@@ -248,7 +248,7 @@ module.exports = class Receive {
       });
     }
     else if (payload === "DISLIKE_MENU"){
-      return Database.hasUserReviewedToday(this.user.psid)
+      Database.hasUserReviewedToday(this.user.psid)
         .then((hasReviewed) => {
           // The Promise resolved successfully with a Boolean value
           if (hasReviewed) {
