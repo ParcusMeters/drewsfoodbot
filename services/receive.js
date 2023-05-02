@@ -270,7 +270,9 @@ module.exports = class Receive {
     }
     else if (payload === "FAILURE"){
       console.log("The user has reviewed today.");
-      response = Response.genText("You have already rated the menu today.");
+      response = {
+        text: `This feature is currently under development`
+      };
     }
     else {
       response = {
