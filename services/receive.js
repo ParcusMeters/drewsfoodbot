@@ -241,11 +241,15 @@ module.exports = class Receive {
     else if (payload === "LIKE_MENU"){
       if(!Database.hasUserReviewedToday(this.user.psid)){
         Database.newRating(true, Response.createLink(true));
+      }else{
+        console.log("User has already submitted a review today.")
       }
     }
     else if (payload === "DISLIKE_MENU"){
       if(!Database.hasUserReviewedToday(this.user.psid)){
         Database.newRating(false, Response.createLink(true));
+      } else{
+        console.log("User has already submitted a review today.")
       }
     }
     else {
