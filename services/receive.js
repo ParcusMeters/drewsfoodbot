@@ -97,7 +97,7 @@ module.exports = class Receive {
     } else if (message.includes("image")){
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("Can I see the menu?")){
-      response = [Response.genMenuButton(this.user.firstName),
+      response = await [Response.genMenuButton(this.user.firstName),
                   Response.genRatingButton()];
 
     }else if (message.includes("Menu Options")){
