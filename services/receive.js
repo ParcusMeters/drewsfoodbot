@@ -277,7 +277,7 @@ module.exports = class Receive {
         text: `This feature is currently under development`
       };
     }
-
+    console.log(response);
     return response;
   }
 
