@@ -238,7 +238,7 @@ module.exports = class Receive {
         Response.genRatingButton()];
     }
     else if (payload === "LIKE_MENU"){
-      if(!Database.hasUserReviewedToday(this.user.psid)){
+      if(Database.hasUserReviewedToday(this.user.psid) === false){
         Database.newRating(true, Response.createLink(true));
         response = Response.genText("Your rating has been submitted.")
       }else{
@@ -247,7 +247,7 @@ module.exports = class Receive {
       }
     }
     else if (payload === "DISLIKE_MENU"){
-      if(!Database.hasUserReviewedToday(this.user.psid)){
+      if(Database.hasUserReviewedToday(this.user.psid) === false){
         Database.newRating(false, Response.createLink(true));
         response = Response.genText("Your rating has been submitted.")
       } else{
