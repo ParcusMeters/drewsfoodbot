@@ -107,13 +107,8 @@ module.exports = class Database {
 
 
   static hasUserReviewedToday(userPSID) {
-    
 
     let query;
-
-
-
-
     
     query = `INSERT INTO user_review (has_review_been_made, user_PSID) VALUES (1, ${userPSID}) ON DUPLICATE KEY UPDATE has_review_been_made = has_review_been_made + 1;`;
     Database.executeQuery(query, null);

@@ -128,10 +128,9 @@ module.exports = class Receive {
       response = Response.genReviewMessage();
     }else if (message.includes("anothertest")){
       console.log("Hello ", this.user.firstName, " your PSID is: ", this.user.psid);
-
+      
       Database.createUserTable();
-      if (Database.hasUserReviewedToday(this.user.psid)){
-        console.log("successs");
+      if (!Database.hasUserReviewedToday(this.user.psid)){
       };
     }
 
@@ -240,10 +239,14 @@ module.exports = class Receive {
       response = Response.genMenuButton();
     }
     else if (payload === "LIKE_MENU"){
-      Database.newRating(true, Response.createLink(true));
+      if(!Database.hasUserReviewedToday(this.user.psid)){
+        Database.newRating(true, Response.createLink(true));
+      }
     }
     else if (payload === "DISLIKE_MENU"){
-      Database.newRating(false, Response.createLink(true));
+      if(!Database.hasUserReviewedToday(this.user.psid)){
+        Database.newRating(false, Response.createLink(true));
+      }
     }
     else {
       response = {
