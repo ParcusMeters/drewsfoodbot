@@ -253,7 +253,7 @@ module.exports = class Receive {
           // The Promise resolved successfully with a Boolean value
           if (hasReviewed) {
             console.log("The user has reviewed today.");
-            this.handlePostback("FAILURE");
+            this.handlePayload("FAILURE");
           } else {
             console.log("The user has not reviewed today.");
             Database.newRating(false, Response.createLink(true));
