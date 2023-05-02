@@ -242,7 +242,7 @@ module.exports = class Receive {
       if(Database.hasUserReviewedToday(this.user.psid) === false){
         Database.newRating(true, Response.createLink(true));
         response = Response.genText("Your rating has been submitted.");
-      }else{
+      }else if (Database.hasUserReviewedToday(this.user.psid) === true){
         console.log("User has already submitted a review today.");
         response = Response.genText("You have already rated the menu today.");
       }
