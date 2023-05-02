@@ -97,7 +97,7 @@ module.exports = class Receive {
     } else if (message.includes("image")){
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("Can I see the menu?")){
-      response = await [Response.genMenuButton(this.user.firstName),
+      response = [Response.genMenuButton(this.user.firstName),
                   Response.genRatingButton()];
 
     }else if (message.includes("Menu Options")){
@@ -239,13 +239,23 @@ module.exports = class Receive {
         Response.genRatingButton()];
     }
     else if (payload === "LIKE_MENU"){
-      if(Database.hasUserReviewedToday(this.user.psid) === false){
-        Database.newRating(true, Response.createLink(true));
-        response = Response.genText("Your rating has been submitted.");
-      }else if (Database.hasUserReviewedToday(this.user.psid) === true){
-        console.log("User has already submitted a review today.");
-        response = Response.genText("You have already rated the menu today.");
-      }
+      Database.hasUserReviewedToday(this.user.psid)
+      .then((hasReviewed) => {
+        // The Promise resolved successfully with a Boolean value
+        if (hasReviewed) {
+          console.log("The user has reviewed today.");
+          response = {
+            text: `This feature is currently under development`
+          };
+        } else {
+          console.log("The user has not reviewed today.");
+          Database.newRating(true, Response.createLink(true));
+        }
+      })
+      .catch((error) => {
+        // The Promise rejected with an error
+        console.error("Error checking if user has reviewed today:", error);
+      });
     }
     else if (payload === "DISLIKE_MENU"){
       Database.hasUserReviewedToday(this.user.psid)
@@ -259,7 +269,6 @@ module.exports = class Receive {
           } else {
             console.log("The user has not reviewed today.");
             Database.newRating(false, Response.createLink(true));
-            return this.handlePayload("SUCCESS");
           }
         })
         .catch((error) => {
