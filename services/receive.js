@@ -240,15 +240,19 @@ module.exports = class Receive {
     else if (payload === "LIKE_MENU"){
       if(!Database.hasUserReviewedToday(this.user.psid)){
         Database.newRating(true, Response.createLink(true));
+        response = Response.genText("Your rating has been submitted.")
       }else{
         console.log("User has already submitted a review today.")
+        response = Response.genText("You have already rated the menu today.")
       }
     }
     else if (payload === "DISLIKE_MENU"){
       if(!Database.hasUserReviewedToday(this.user.psid)){
         Database.newRating(false, Response.createLink(true));
+        response = Response.genText("Your rating has been submitted.")
       } else{
         console.log("User has already submitted a review today.")
+        response = Response.genText("You have already rated the menu today.")
       }
     }
     else {
