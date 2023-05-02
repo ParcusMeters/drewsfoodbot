@@ -254,10 +254,12 @@ module.exports = class Receive {
           if (hasReviewed) {
             console.log("The user has reviewed today.");
             response = Response.genText("You have already rated the menu today.");
+            return response;
           } else {
             console.log("The user has not reviewed today.");
             Database.newRating(false, Response.createLink(true));
             response = Response.genText("Your rating has been submitted.");
+            return response;
           }
         })
         .catch((error) => {
