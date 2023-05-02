@@ -1,13 +1,3 @@
-/**
- * Copyright 2021-present, Facebook, Inc. All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * Messenger For Original Coast Clothing
- * https://developers.facebook.com/docs/messenger-platform/getting-started/sample-apps/original-coast-clothing
- */
-
 "use strict";
 
 const Menu = require("./menu"),
@@ -258,12 +248,12 @@ module.exports = class Receive {
       });
     }
     else if (payload === "DISLIKE_MENU"){
-      Database.hasUserReviewedToday(this.user.psid)
+      return Database.hasUserReviewedToday(this.user.psid)
         .then((hasReviewed) => {
           // The Promise resolved successfully with a Boolean value
           if (hasReviewed) {
             console.log("The user has reviewed today.");
-            response = {
+            return response = {
               text: `This feature is currently under development`
             };
           } else {
