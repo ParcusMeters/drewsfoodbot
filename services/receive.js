@@ -248,14 +248,27 @@ module.exports = class Receive {
       }
     }
     else if (payload === "DISLIKE_MENU"){
-      console.log(Database.hasUserReviewedToday(this.user.psid));
-      if(Database.hasUserReviewedToday(this.user.psid) === false){
-        Database.newRating(false, Response.createLink(true));
-        response = Response.genText("Your rating has been submitted.");
-      } else{
-        console.log("User has already submitted a review today.");
-        response = Response.genText("You have already rated the menu today.");
-      }
+      Database.hasUserReviewedToday(this.user.psid)
+        .then((hasReviewed) => {
+          // The Promise resolved successfully with a Boolean value
+          if (hasReviewed) {
+            console.log("The user has reviewed today.");
+          } else {
+            console.log("The user has not reviewed today.");
+          }
+        })
+        .catch((error) => {
+          // The Promise rejected with an error
+          console.error("Error checking if user has reviewed today:", error);
+        });
+
+      // if(Database.hasUserReviewedToday(this.user.psid) === false){
+      //   Database.newRating(false, Response.createLink(true));
+      //   response = Response.genText("Your rating has been submitted.");
+      // } else{
+      //   console.log("User has already submitted a review today.");
+      //   response = Response.genText("You have already rated the menu today.");
+      // }
     }
     else {
       response = {
