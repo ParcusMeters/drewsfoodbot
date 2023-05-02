@@ -234,7 +234,8 @@ module.exports = class Receive {
     } 
     //adding menu options
     else if (payload === "CAN I SEE THE MENU?"){
-      response = Response.genMenuButton();
+      response = [Response.genMenuButton(this.user.firstName),
+        Response.genRatingButton()];
     }
     else if (payload === "LIKE_MENU"){
       if(!Database.hasUserReviewedToday(this.user.psid)){
