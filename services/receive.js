@@ -240,6 +240,10 @@ module.exports = class Receive {
       response = [Response.genMenuButton(this.user.firstName),
         Response.genRatingButton()];
     }
+    
+
+
+    
     else if (payload === "LIKE_MENU"){
       Database.hasUserReviewedToday(this.user.psid)
       .then((hasReviewed) => {
@@ -281,6 +285,11 @@ module.exports = class Receive {
           console.error("Error checking if user has reviewed today:", error);
         });
     }
+
+
+
+
+
     else if (payload === "SUCCESS"){
       response = Response.genText("Your rating has been submitted.");
     }
@@ -295,8 +304,12 @@ module.exports = class Receive {
         text: `This feature is currently under development`
       };
     }
+
+
     if (typeof response === 'undefined') {
-      console.log('BINGO');
+      response = {
+        text: `Rating submitted.`
+      };
     } else {
       console.log('myVariable is defined');
     }
