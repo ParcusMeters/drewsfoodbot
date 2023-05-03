@@ -295,7 +295,11 @@ module.exports = class Receive {
         text: `This feature is currently under development`
       };
     }
-    console.log("REVIEW: ", hasReviewed);
+    if (typeof response === 'undefined') {
+      console.log('BINGO');
+    } else {
+      console.log('myVariable is defined');
+    }
     return response;
   }
 
