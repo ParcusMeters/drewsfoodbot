@@ -237,24 +237,36 @@ module.exports = class Receive {
       response = [Response.genMenuButton(this.user.firstName),
         Response.genRatingButton()];
     }
-    else if (payload === "LIKE_MENU"){
+    else if (payload === "LIKE_MENU") {
       Database.hasUserReviewedToday(this.user.psid)
-      .then((hasReviewed) => {
-        // The Promise resolved successfully with a Boolean value
-        if (hasReviewed) {
-          console.log("The user has reviewed today.");
+        .then((hasReviewed) => {
+          // The Promise resolved successfully with a Boolean value
+          if (hasReviewed) {
+            console.log("The user has reviewed today.");
+            response = {
+              text: `This feature is currently under development`
+            };
+          } else {
+            console.log("The user has not reviewed today.");
+            Database.newRating(true, Response.createLink(true))
+              .then(() => {
+                response = Response.genText("Your rating has been submitted.");
+              })
+              .catch((error) => {
+                console.error("Error submitting rating:", error);
+                response = {
+                  text: `An error occurred while submitting your rating. Please try again later.`
+                };
+              });
+          }
+        })
+        .catch((error) => {
+          // The Promise rejected with an error
+          console.error("Error checking if user has reviewed today:", error);
           response = {
-            text: `This feature is currently under development`
+            text: `An error occurred while checking if you've reviewed today. Please try again later.`
           };
-        } else {
-          console.log("The user has not reviewed today.");
-          Database.newRating(true, Response.createLink(true));
-        }
-      })
-      .catch((error) => {
-        // The Promise rejected with an error
-        console.error("Error checking if user has reviewed today:", error);
-      });
+        });
     }
     else if (payload === "DISLIKE_MENU"){
       Database.hasUserReviewedToday(this.user.psid)
