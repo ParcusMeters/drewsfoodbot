@@ -219,26 +219,31 @@ module.exports = class Receive {
     }
     return null;
   }
-  handlePayload(payload) {
+
+
+ handlePayload(payload) {
     console.log("Received Payload:", `${payload} for ${this.user.psid}`);
 
-    let response;
+    return new Promise((resolve, reject) => {
+      let response;
 
-    // Set the response based on the payload
-    if (
-      payload === "GET_STARTED" ||
-      payload === "DEVDOCS" ||
-      payload === "GITHUB"
-    ) {
-      response = Response.genNuxMessage(this.user);
-    } 
-    //adding menu options
-    else if (payload === "CAN I SEE THE MENU?"){
-      response = [Response.genMenuButton(this.user.firstName),
-        Response.genRatingButton()];
-    }
-    else if (payload === "LIKE_MENU") {
-      Database.hasUserReviewedToday(this.user.psid)
+      // Set the response based on the payload
+      if (
+        payload === "GET_STARTED" ||
+        payload === "DEVDOCS" ||
+        payload === "GITHUB"
+      ) {
+        response = Response.genNuxMessage(this.user);
+        resolve(response);
+      } 
+      //adding menu options
+      else if (payload === "CAN I SEE THE MENU?"){
+        response = [Response.genMenuButton(this.user.firstName),
+          Response.genRatingButton()];
+        resolve(response);
+      }
+      else if (payload === "LIKE_MENU"){
+        Database.hasUserReviewedToday(this.user.psid)
         .then((hasReviewed) => {
           // The Promise resolved successfully with a Boolean value
           if (hasReviewed) {
@@ -248,62 +253,59 @@ module.exports = class Receive {
             };
           } else {
             console.log("The user has not reviewed today.");
-            Database.newRating(true, Response.createLink(true))
-              .then(() => {
-                response = Response.genText("Your rating has been submitted.");
-              })
-              .catch((error) => {
-                console.error("Error submitting rating:", error);
-                response = {
-                  text: `An error occurred while submitting your rating. Please try again later.`
-                };
-              });
+            Database.newRating(true, Response.createLink(true));
+            response = Response.genText("Your rating has been submitted.");
           }
+          resolve(response);
         })
         .catch((error) => {
           // The Promise rejected with an error
           console.error("Error checking if user has reviewed today:", error);
-          response = {
-            text: `An error occurred while checking if you've reviewed today. Please try again later.`
-          };
+          reject(error);
         });
-    }
-    else if (payload === "DISLIKE_MENU"){
-      Database.hasUserReviewedToday(this.user.psid)
-        .then((hasReviewed) => {
-          // The Promise resolved successfully with a Boolean value
-          if (hasReviewed) {
-            console.log("The user has reviewed today.");
-            return response = {
-              text: `This feature is currently under development`
-            };
-          } else {
-            console.log("The user has not reviewed today.");
-            Database.newRating(false, Response.createLink(true));
-          }
-        })
-        .catch((error) => {
-          // The Promise rejected with an error
-          console.error("Error checking if user has reviewed today:", error);
-        });
-    }
-    else if (payload === "SUCCESS"){
-      response = Response.genText("Your rating has been submitted.");
-    }
-    else if (payload === "FAILURE"){
-      console.log("The user has reviewed today.");
-      response = {
-        text: `This feature is currently under development`
-      };
-    }
-    else {
-      response = {
-        text: `This feature is currently under development`
-      };
-    }
-    console.log(response);
-    return response;
+      }
+      else if (payload === "DISLIKE_MENU"){
+        Database.hasUserReviewedToday(this.user.psid)
+          .then((hasReviewed) => {
+            // The Promise resolved successfully with a Boolean value
+            if (hasReviewed) {
+              console.log("The user has reviewed today.");
+              response = {
+                text: `This feature is currently under development`
+              };
+            } else {
+              console.log("The user has not reviewed today.");
+              Database.newRating(false, Response.createLink(true));
+              response = Response.genText("Your rating has been submitted.");
+            }
+            resolve(response);
+          })
+          .catch((error) => {
+            // The Promise rejected with an error
+            console.error("Error checking if user has reviewed today:", error);
+            reject(error);
+          });
+      }
+      else if (payload === "SUCCESS"){
+        response = Response.genText("Your rating has been submitted.");
+        resolve(response);
+      }
+      else if (payload === "FAILURE"){
+        console.log("The user has reviewed today.");
+        response = {
+          text: `This feature is currently under development`
+        };
+        resolve(response);
+      }
+      else {
+        response = {
+          text: `This feature is currently under development`
+        };
+        resolve(response);
+      }
+    });
   }
+
 
   handlePrivateReply(type, object_id) {
     let welcomeMessage =
