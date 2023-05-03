@@ -89,8 +89,17 @@ module.exports = class Receive {
     }else if (message.includes("Can I see the menu?")){
       response = [Response.genMenuButton(this.user.firstName),
                   Response.genRatingButton()];
-
-    }else if (message.includes("Menu Options")){
+    }
+    else if (message.includes("can I see the menu")){
+      response = [Response.genMenuButton(this.user.firstName),
+                  Response.genRatingButton()];
+      }
+      else if (message.includes("Can I see the menu")){
+        response = [Response.genMenuButton(this.user.firstName),
+                    Response.genRatingButton()];
+        }
+    
+    else if (message.includes("Menu Options")){
       response = Response.genMenuButton(this.user.firstName);
     }else if (message.includes("help")){
       response = Response.genText("A human user has been contacted and will be with you shortly to assist.");
