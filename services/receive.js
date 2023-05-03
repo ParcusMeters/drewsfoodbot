@@ -223,9 +223,10 @@ module.exports = class Receive {
   
   handlePayload(payload) {
     console.log("Received Payload:", `${payload} for ${this.user.psid}`);
-  
+
     let response;
-  
+    let review;
+
     // Set the response based on the payload
     if (
       payload === "GET_STARTED" ||
@@ -243,6 +244,7 @@ module.exports = class Receive {
       Database.hasUserReviewedToday(this.user.psid)
       .then((hasReviewed) => {
         // The Promise resolved successfully with a Boolean value
+        review = hasReviewed;
         if (hasReviewed) {
           console.log("The user has reviewed today.");
           response = {
@@ -250,10 +252,7 @@ module.exports = class Receive {
           };
         } else {
           console.log("The user has not reviewed today.");
-          Database.newRating(true, Response.createLink(true))
-          .then(() => {
-            response = Response.genText("Your rating has been submitted.");
-          });
+          Database.newRating(true, Response.createLink(true));
         }
       })
       .catch((error) => {
@@ -265,17 +264,16 @@ module.exports = class Receive {
       Database.hasUserReviewedToday(this.user.psid)
         .then((hasReviewed) => {
           // The Promise resolved successfully with a Boolean value
+          review = hasReviewed;
+
           if (hasReviewed) {
             console.log("The user has reviewed today.");
-            response = {
+            return response = {
               text: `This feature is currently under development`
             };
           } else {
             console.log("The user has not reviewed today.");
-            Database.newRating(false, Response.createLink(true))
-            .then(() => {
-              response = Response.genText("Your rating has been submitted.");
-            });
+            Database.newRating(false, Response.createLink(true));
           }
         })
         .catch((error) => {
@@ -297,20 +295,9 @@ module.exports = class Receive {
         text: `This feature is currently under development`
       };
     }
-  
-    // wait for the promise to set the value of response
-    return new Promise((resolve, reject) => {
-      const checkResponse = () => {
-        if (response) {
-          resolve(response);
-        } else {
-          setTimeout(checkResponse, 100);
-        }
-      };
-      checkResponse();
-    });
+    console.log("REVIEW: ", hasReviewed);
+    return response;
   }
-  
 
   handlePrivateReply(type, object_id) {
     let welcomeMessage =
