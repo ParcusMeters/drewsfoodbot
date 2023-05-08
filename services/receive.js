@@ -130,6 +130,8 @@ module.exports = class Receive {
       if (!Database.hasUserReviewedToday(this.user.psid)){
         console.log("SUCCESS!");
       };
+    }else if (message.includes("test2")){
+      response = Response.genImageTemplate("public/images/PCL.png", "PCL");
     }
 
     else {
