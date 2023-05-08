@@ -136,27 +136,18 @@ module.exports = class Response {
 
   static genRatingButton(){
 
-    let response = {
-      attachment: {
-        type: 'template',
-        payload: {
-          template_type: 'button',
-          text: "What do you think of today's menu?",
-          buttons: [
-            {
-              type: 'postback',
-              payload: "LIKE_MENU",
-              title: "😀"
-            },
-            {
-              type: 'postback',
-              payload: "DISLIKE_MENU",
-              title: "😠"
-            }
-          ]
+    let response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
+        {
+          type: 'postback',
+          payload: "LIKE_MENU",
+          title: "😀"
+        },
+        {
+          type: 'postback',
+          payload: "DISLIKE_MENU",
+          title: "😠"
         }
-      }
-    }
+      ]);
     return response;
   }
 
