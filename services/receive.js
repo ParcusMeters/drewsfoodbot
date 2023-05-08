@@ -136,7 +136,7 @@ module.exports = class Receive {
     }else if (message.includes("test2")){
       response = Response.genSendImage();
     }else if (message.includes("how do i use drew's bot?")){
-      
+      response = Response.genText("");
     }
 
     else {
