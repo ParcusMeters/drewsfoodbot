@@ -97,8 +97,7 @@ module.exports = class Response {
       attachment: {
         type: "image", 
         payload:{
-          url: "https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg",
-          is_reusable: "true"
+          url: "https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg"
         }
       }
     };
