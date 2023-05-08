@@ -88,15 +88,48 @@ module.exports = class Receive {
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu?")){
       response = [Response.genMenuButton(this.user.firstName),
-                  Response.genRatingButton()];
+                  Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
+        {
+          type: 'postback',
+          payload: "LIKE_MENU",
+          title: "😀"
+        },
+        {
+          type: 'postback',
+          payload: "DISLIKE_MENU",
+          title: "😠"
+        }
+      ])];
     }
     else if (message.includes("can i see the menu")){
       response = [Response.genMenuButton(this.user.firstName),
-                  Response.genRatingButton()];
+        Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
+          {
+            type: 'postback',
+            payload: "LIKE_MENU",
+            title: "😀"
+          },
+          {
+            type: 'postback',
+            payload: "DISLIKE_MENU",
+            title: "😠"
+          }
+        ])];
       }
       else if (message.includes("Can I see the menu")){
         response = [Response.genMenuButton(this.user.firstName),
-                    Response.genRatingButton()];
+          Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
+            {
+              type: 'postback',
+              payload: "LIKE_MENU",
+              title: "😀"
+            },
+            {
+              type: 'postback',
+              payload: "DISLIKE_MENU",
+              title: "😠"
+            }
+          ])];
         }
     
     else if (message.includes("Menu Options")){
@@ -131,7 +164,7 @@ module.exports = class Receive {
         console.log("SUCCESS!");
       };
     }else if (message.includes("test2")){
-      response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/2021/12/Main_Prideflag_04-2048x1365.jpg", "Did you like todays menu?", "Please provide a rating.", [
+      response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
         {
           type: 'postback',
           payload: "LIKE_MENU",
