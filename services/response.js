@@ -101,6 +101,8 @@ module.exports = class Response {
         }
       }
     };
+
+    return response;
   }
 
   static genButtonTemplate(title, buttons) {
