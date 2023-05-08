@@ -92,12 +92,12 @@ module.exports = class Response {
     return response;
   }
 
-  static genSendImage() {
+  static genSendImage(url) {
     let response = {
       attachment: {
         type: "image",
         payload: {
-          url: "https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg"
+          url: url
         }
       }
     };
