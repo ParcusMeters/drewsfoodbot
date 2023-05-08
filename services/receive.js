@@ -131,7 +131,7 @@ module.exports = class Receive {
         console.log("SUCCESS!");
       };
     }else if (message.includes("test2")){
-      response = Response.genImageTemplate("public/images/PCL.png", "PCL", "deez");
+      response = Response.genImageTemplate("PCL.png", "PCL", "deez");
     }
 
     else {
