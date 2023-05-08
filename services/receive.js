@@ -131,7 +131,18 @@ module.exports = class Receive {
         console.log("SUCCESS!");
       };
     }else if (message.includes("test2")){
-      response = Response.genImageTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/2021/12/Main_Prideflag_04-2048x1365.jpg", "PCL", "deez");
+      response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/2021/12/Main_Prideflag_04-2048x1365.jpg", "PCL", "deez", [
+        {
+          type: 'postback',
+          payload: "LIKE_MENU",
+          title: "😀"
+        },
+        {
+          type: 'postback',
+          payload: "DISLIKE_MENU",
+          title: "😠"
+        }
+      ]);
     }
 
     else {
