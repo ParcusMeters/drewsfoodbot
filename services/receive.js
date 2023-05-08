@@ -245,6 +245,9 @@ module.exports = class Receive {
       response = [Response.genMenuButton(this.user.firstName),
         Response.genRatingButton()];
     }
+    else if (payload === "CONTACT A PCL"){
+      response = Response.genSendImage("https://students.standrewscollege.edu.au/wp-content/uploads/2023/02/PCL-poster-e1676266785520.png");
+    }
     
 
 
