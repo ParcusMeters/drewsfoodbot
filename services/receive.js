@@ -131,7 +131,7 @@ module.exports = class Receive {
         console.log("SUCCESS!");
       };
     }else if (message.includes("test2")){
-      response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/2021/12/Main_Prideflag_04-2048x1365.jpg", "What do you think of todays menu?", "Your review will be sent to college admin.", [
+      response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/2021/12/Main_Prideflag_04-2048x1365.jpg", "Did you like todays menu?", "Please provide a rating.", [
         {
           type: 'postback',
           payload: "LIKE_MENU",
