@@ -88,48 +88,15 @@ module.exports = class Receive {
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu?")){
       response = [Response.genMenuButton(this.user.firstName),
-                  Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
-        {
-          type: 'postback',
-          payload: "LIKE_MENU",
-          title: "😀"
-        },
-        {
-          type: 'postback',
-          payload: "DISLIKE_MENU",
-          title: "😠"
-        }
-      ])];
+                  Response.genRatingButton()];
     }
     else if (message.includes("can i see the menu")){
       response = [Response.genMenuButton(this.user.firstName),
-        Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
-          {
-            type: 'postback',
-            payload: "LIKE_MENU",
-            title: "😀"
-          },
-          {
-            type: 'postback',
-            payload: "DISLIKE_MENU",
-            title: "😠"
-          }
-        ])];
+                  Response.genRatingButton()];
       }
       else if (message.includes("Can I see the menu")){
         response = [Response.genMenuButton(this.user.firstName),
-          Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
-            {
-              type: 'postback',
-              payload: "LIKE_MENU",
-              title: "😀"
-            },
-            {
-              type: 'postback',
-              payload: "DISLIKE_MENU",
-              title: "😠"
-            }
-          ])];
+                    Response.genRatingButton()];
         }
     
     else if (message.includes("Menu Options")){
