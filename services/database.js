@@ -31,6 +31,8 @@ module.exports = class Database {
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
       likes INT,\
       dislikes INT,\
+      lunch_likes INT,\
+      lunch_dislikes INT,\
       url TEXT,\
       UNIQUE KEY url_idx (url(255))\
     );', (err, rows) => {
@@ -84,6 +86,19 @@ module.exports = class Database {
     console.log("User rated menu.");
   }
 
+  static newLunchRating(like, url){
+    let query;
+    if (like === true){
+      query = `INSERT INTO menu_ratings (lunch_likes, lunch_dislikes, url) VALUES (1, 0, '${url}')ON DUPLICATE KEY UPDATE likes = likes + 1;`;
+    } else {
+      query = `INSERT INTO menu_ratings (lunch_likes, lunch_dislikes, url) VALUES (0, 1, '${url}')ON DUPLICATE KEY UPDATE dislikes = dislikes + 1;`;
+    }
+    
+    Database.executeQuery(query, null);
+
+    console.log("User rated menu.");
+  }
+
 
   static retrieveData(){
     let query;
@@ -102,7 +117,19 @@ module.exports = class Database {
       if (err) throw err;
       console.log('user_reviews table created or already exists!');
     });
+  }
 
+  //table that checks if user has reviewed lunch.
+  static createLunchTable(){
+    this.connection.query('CREATE TABLE IF NOT EXISTS lunch_review (\
+      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
+      has_review_been_made INT,\
+      user_PSID TEXT,\
+      UNIQUE KEY user_PSIDx (user_PSID(255))\
+    );', (err, rows) => {
+      if (err) throw err;
+      console.log('lunch_review table created or already exists!');
+    });
   }
 
 
@@ -123,7 +150,28 @@ module.exports = class Database {
         reject(error);
       });
     });
-}
+  
+  }
+
+  static hasUserReviewedLunch(userPSID) {
+
+    let query;
+    
+    query = `INSERT INTO lunch_review (has_review_been_made, user_PSID) VALUES (1, ${userPSID}) ON DUPLICATE KEY UPDATE has_review_been_made = has_review_been_made + 1;`;
+    Database.executeQuery(query, null);
+  
+    query = `SELECT has_review_been_made FROM lunch_review WHERE user_PSID = ${userPSID};`;
+    return new Promise((resolve, reject) => {
+      Database.executeQuery(query, (rows) => {
+        const hasReviewed = rows[0].has_review_been_made > 1;
+        console.log(`User has reviewed today: ${hasReviewed}`);
+        resolve(hasReviewed);
+      }, (error) => {
+        reject(error);
+      });
+    });
+  }
+
 
 
   

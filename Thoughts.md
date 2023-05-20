@@ -15,4 +15,8 @@
 - The PCLs will be displayed with an image and a description of them.
 
 ## Calendar Feature
-*Details about the calendar feature are currently unavailable.*
+- A quick response option that displays the current student calendar.
+
+
+## Database update
+- Need to introduce a new database to split reviews into lunch and dinner

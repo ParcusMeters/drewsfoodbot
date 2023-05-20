@@ -163,6 +163,24 @@ module.exports = class Response {
     return response;
   }
 
+  static genRatingButtonLunch(){
+
+    let response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
+        {
+          type: 'postback',
+          payload: "LIKE_LUNCH",
+          title: "😀"
+        },
+        {
+          type: 'postback',
+          payload: "DISLIKE_LUNCH",
+          title: "😠"
+        }
+      ]);
+      
+    return response;
+  }
+
   
 
   static genMenuButton(userPSID) {
