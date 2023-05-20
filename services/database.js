@@ -13,10 +13,13 @@ module.exports = class Database {
   
 
   static initialise(){
+    this.clearTable();
     this.createTable();
   }
   
-
+  static clearTable(){
+    this.connection.query("DROP TABLE IF EXISTS menu_ratings");
+  }
 
 
   static connect() {
@@ -60,6 +63,8 @@ module.exports = class Database {
       }
     });
   }
+
+
 
   static close() {
     this.connection.end((err) => {
@@ -150,7 +155,6 @@ module.exports = class Database {
         reject(error);
       });
     });
-  
   }
 
   static hasUserReviewedLunch(userPSID) {
@@ -170,11 +174,7 @@ module.exports = class Database {
         reject(error);
       });
     });
-  }
-
-
-
-  
+  }  
 }
 
 

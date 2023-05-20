@@ -313,7 +313,7 @@ module.exports = class Receive {
           };
         } else {
           console.log("The user has not reviewed today.");
-          Database.newRating(true, Response.createLink(true));
+          Database.newLunchRating(true, Response.createLink(true));
         }
       })
       .catch((error) => {
@@ -334,7 +334,7 @@ module.exports = class Receive {
           };
         } else {
           console.log("The user has not reviewed today.");
-          Database.newRating(true, Response.createLink(true));
+          Database.newLunchRating(false, Response.createLink(true));
         }
       })
       .catch((error) => {
