@@ -165,7 +165,7 @@ module.exports = class Response {
 
   static genRatingButtonLunch(){
 
-    let response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays lunch?", "Please provide a rating.", [
+    let response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/20190412_ReadingRoom-009-1.jpg", "Did you like todays lunch?", "Please provide a rating.", [
         {
           type: 'postback',
           payload: "LIKE_LUNCH",
