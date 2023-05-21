@@ -250,6 +250,7 @@ module.exports = class Receive {
     //adding menu options
     else if (payload === "CAN I SEE THE MENU?"){
       response = [Response.genMenuButton(this.user.firstName),
+        Response.genRatingButtonLunch(),
         Response.genRatingButton()];
     }
     else if (payload === "CONTACT A PCL"){
