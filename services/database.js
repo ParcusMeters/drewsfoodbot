@@ -38,8 +38,8 @@ module.exports = class Database {
   static createTable() {
     this.connection.query('CREATE TABLE IF NOT EXISTS menu_ratings (\
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,\
-      likes INT,\
-      dislikes INT,\
+      dinner_likes INT,\
+      dinner_dislikes INT,\
       lunch_likes INT,\
       lunch_dislikes INT,\
       url TEXT,\
@@ -87,27 +87,27 @@ module.exports = class Database {
   static newRating(like, url){
     let query;
     if (like === true){
-      query = `INSERT INTO menu_ratings (likes, dislikes, lunch_likes, lunch_dislikes, url) VALUES (1, 0, 0, 0, '${url}')ON DUPLICATE KEY UPDATE likes = likes + 1;`;
+      query = `INSERT INTO menu_ratings (dinner_likes, dinner_dislikes, lunch_likes, lunch_dislikes, url) VALUES (1, 0, 0, 0, '${url}')ON DUPLICATE KEY UPDATE dinner_likes = dinner_likes + 1;`;
     } else {
-      query = `INSERT INTO menu_ratings (likes, dislikes, lunch_likes, lunch_dislikes, url) VALUES (0, 1, 0, 0, '${url}')ON DUPLICATE KEY UPDATE dislikes = dislikes + 1;`;
+      query = `INSERT INTO menu_ratings (dinner_likes, dinner_dislikes, lunch_likes, lunch_dislikes, url) VALUES (0, 1, 0, 0, '${url}')ON DUPLICATE KEY UPDATE dinner_dislikes = dinner_dislikes + 1;`;
     }
     
     Database.executeQuery(query, null);
 
-    console.log("User rated menu.");
+    console.log("User rated dinner.");
   }
 
   static newLunchRating(like, url){
     let query;
     if (like === true){
-      query = `INSERT INTO menu_ratings (likes, dislikes, lunch_likes, lunch_dislikes, url) VALUES (0, 0, 1, 0, '${url}')ON DUPLICATE KEY UPDATE lunch_likes = lunch_likes + 1;`;
+      query = `INSERT INTO menu_ratings (dinner_likes, dinner_dislikes, lunch_likes, lunch_dislikes, url) VALUES (0, 0, 1, 0, '${url}')ON DUPLICATE KEY UPDATE lunch_likes = lunch_likes + 1;`;
     } else {
-      query = `INSERT INTO menu_ratings (likes, dislikes, lunch_likes, lunch_dislikes, url) VALUES (0, 0, 0, 1, '${url}')ON DUPLICATE KEY UPDATE lunch_dislikes = lunch_dislikes + 1;`;
+      query = `INSERT INTO menu_ratings (dinner_likes, dinner_dislikes, lunch_likes, lunch_dislikes, url) VALUES (0, 0, 0, 1, '${url}')ON DUPLICATE KEY UPDATE lunch_dislikes = lunch_dislikes + 1;`;
     }
     
     Database.executeQuery(query, null);
 
-    console.log("User rated menu.");
+    console.log("User rated lunch.");
   }
 
 
