@@ -138,7 +138,6 @@ module.exports = class Receive {
     }else if (message.includes("how do i use drew's bot?")){
       response = Response.genText("");
     }else if (message.includes("test3")){
-      Database.createLunchTable();
       response = Response.genRatingButtonLunch();
     }
 
@@ -307,12 +306,12 @@ module.exports = class Receive {
         // The Promise resolved successfully with a Boolean value
         review = hasReviewed;
         if (hasReviewed) {
-          console.log("The user has reviewed today.");
+          console.log("The user has reviewed lunch today.");
           response = {
             text: `This feature is currently under development`
           };
         } else {
-          console.log("The user has not reviewed today.");
+          console.log("The user has not reviewed lunch today.");
           Database.newLunchRating(true, Response.createLink(true));
         }
       })
@@ -328,12 +327,12 @@ module.exports = class Receive {
         // The Promise resolved successfully with a Boolean value
         review = hasReviewed;
         if (hasReviewed) {
-          console.log("The user has reviewed today.");
+          console.log("The user has reviewed lunch today.");
           response = {
             text: `This feature is currently under development`
           };
         } else {
-          console.log("The user has not reviewed today.");
+          console.log("The user has not reviewed lunch today.");
           Database.newLunchRating(false, Response.createLink(true));
         }
       })
