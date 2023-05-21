@@ -19,6 +19,10 @@ module.exports = class Database {
   
   static clearTable(){
     this.connection.query("DROP TABLE IF EXISTS menu_ratings");
+    this.connection.query("DROP TABLE IF EXISTS user_review");
+    this.connection.query("DROP TABLE IF EXISTS lunch_review");
+
+
   }
 
 
