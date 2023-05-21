@@ -100,9 +100,9 @@ module.exports = class Database {
   static newLunchRating(like, url){
     let query;
     if (like === true){
-      query = `INSERT INTO menu_ratings (lunch_likes, lunch_dislikes, url) VALUES (1, 0, '${url}')ON DUPLICATE KEY UPDATE likes = likes + 1;`;
+      query = `INSERT INTO menu_ratings (lunch_likes, lunch_dislikes, url) VALUES (1, 0, '${url}')ON DUPLICATE KEY UPDATE lunch_likes = lunch_likes + 1;`;
     } else {
-      query = `INSERT INTO menu_ratings (lunch_likes, lunch_dislikes, url) VALUES (0, 1, '${url}')ON DUPLICATE KEY UPDATE dislikes = dislikes + 1;`;
+      query = `INSERT INTO menu_ratings (lunch_likes, lunch_dislikes, url) VALUES (0, 1, '${url}')ON DUPLICATE KEY UPDATE lunch_dislikes = lunch_dislikes + 1;`;
     }
     
     Database.executeQuery(query, null);
