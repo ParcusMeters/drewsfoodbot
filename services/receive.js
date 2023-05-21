@@ -88,14 +88,17 @@ module.exports = class Receive {
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu?")){
       response = [Response.genMenuButton(this.user.firstName),
-                  Response.genRatingButton()];
+        Response.genRatingButtonLunch(),
+        Response.genRatingButton()];
     }
     else if (message.includes("can i see the menu")){
       response = [Response.genMenuButton(this.user.firstName),
-                  Response.genRatingButton()];
+        Response.genRatingButtonLunch(),
+        Response.genRatingButton()];
       }
     else if (message.includes("Can I see the menu")){
       response = [Response.genMenuButton(this.user.firstName),
+                  Response.genRatingButtonLunch(),
                   Response.genRatingButton()];
       }
     else if (message.includes("contact a pcl")){

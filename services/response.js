@@ -148,7 +148,7 @@ module.exports = class Response {
 
   static genRatingButton(){
 
-    let response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
+    let response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays dinner?", "Please provide a rating.", [
         {
           type: 'postback',
           payload: "LIKE_MENU",
@@ -165,7 +165,7 @@ module.exports = class Response {
 
   static genRatingButtonLunch(){
 
-    let response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays menu?", "Please provide a rating.", [
+    let response = Response.genGenericTemplate("https://www.standrewscollege.edu.au/wp-content/uploads/College-grounds-and-rooms_Page_04.jpg", "Did you like todays lunch?", "Please provide a rating.", [
         {
           type: 'postback',
           payload: "LIKE_LUNCH",
@@ -177,7 +177,7 @@ module.exports = class Response {
           title: "😠"
         }
       ]);
-      
+
     return response;
   }
 
