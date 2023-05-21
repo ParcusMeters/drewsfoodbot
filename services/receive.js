@@ -52,7 +52,7 @@ module.exports = class Receive {
       let delay = 0;
       for (let response of responses) {
         console.log(response);
-        this.sendMessage(response, delay * 2000, this.isUserRef);
+        this.sendMessage(response, delay * 1000, this.isUserRef);
         delay+=4;
       }
     } else {

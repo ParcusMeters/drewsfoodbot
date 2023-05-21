@@ -169,12 +169,12 @@ module.exports = class Response {
         {
           type: 'postback',
           payload: "LIKE_LUNCH",
-          title: "🤤"
+          title: "😁"
         },
         {
           type: 'postback',
           payload: "DISLIKE_LUNCH",
-          title: "🤢"
+          title: "😤"
         }
       ]);
 
