@@ -260,7 +260,7 @@ module.exports = class Receive {
       response = Response.genSendImage("https://students.standrewscollege.edu.au/wp-content/uploads/2023/02/PCL-poster-e1676266785520.png");
     }
     else if (payload === "CAN I SEE THE CALENDAR?"){
-      response = Response.genImageTemplate("PCL.png", "deeznuts");
+      response = Response.genImageTemplate("services/PCL.png", "deeznuts");
     }
     
 
