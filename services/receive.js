@@ -259,6 +259,9 @@ module.exports = class Receive {
     else if (payload === "CONTACT A PCL"){
       response = Response.genSendImage("https://students.standrewscollege.edu.au/wp-content/uploads/2023/02/PCL-poster-e1676266785520.png");
     }
+    else if (payload === "CAN I SEE THE CALENDAR?"){
+      response = Response.genSendImage("2023-SEM-2-CALENDAR-1.png");
+    }
     
 
 
