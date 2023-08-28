@@ -7,9 +7,8 @@ module.exports = class Database {
   static connection = mysql.createConnection({
     host: config.awsHost,
     user: "admin",
-    password: config.awsPassword,
-    database: "drewsdb"
-  });
+    password: config.awsPassword
+    });
   
 
   static initialise(){
