@@ -13,9 +13,9 @@ module.exports = class Database {
 
   static initialise(){
     this.connect();
-    //this.createTable();
-    //this.createUserTable();
-    //this.createLunchTable();
+    this.createTable();
+    this.createUserTable();
+    this.createLunchTable();
   }
   
   static clearTable(){
