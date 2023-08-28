@@ -14,9 +14,14 @@ module.exports = class Database {
 
   static initialise(){
     this.connect();
-    this.createTable();
-    this.createUserTable();
-    this.createLunchTable();
+    this.connection.query('USE "";', (err, result) => {
+      if (err) throw err;
+      // Now you can perform other database operations like creating tables
+      this.createTable();
+    });
+    //this.createTable();
+    //this.createUserTable();
+    //this.createLunchTable();
   }
   
   static clearTable(){
