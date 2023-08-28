@@ -6,9 +6,8 @@ const config = require('./config');
 module.exports = class Database {
   static connection = mysql.createConnection({
     host: config.awsHost,
-    user: config.awsUser,
+    user: "admin",
     password: config.awsPassword,
-    database: config.awsDatabase 
   });
   
 
