@@ -12,9 +12,10 @@ module.exports = class Database {
   
 
   static initialise(){
-    this.createTable();
-    this.createUserTable();
-    this.createLunchTable();
+    this.connect();
+    //this.createTable();
+    //this.createUserTable();
+    //this.createLunchTable();
   }
   
   static clearTable(){
