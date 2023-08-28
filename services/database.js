@@ -14,7 +14,6 @@ module.exports = class Database {
 
   static initialise(){
     this.connect();
-
     this.createTable();
     this.createUserTable();
     this.createLunchTable();
@@ -33,7 +32,7 @@ module.exports = class Database {
     this.connection.connect((err) => {
       console.log('Connected to database!');
     });
-    this.connection.query("CREATE DATABASE drews_db;");
+    this.connection.query("CREATE DATABASE IF NOT EXISTS drews_db;");
     this.connection.query("USE drews_db;");
   }
   //adding comment
