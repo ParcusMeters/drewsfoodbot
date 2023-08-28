@@ -8,7 +8,7 @@ module.exports = class Database {
     host: config.awsHost,
     user: "admin",
     password: config.awsPassword,
-    database: "-"
+    database: ""
   });
   
 
