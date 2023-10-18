@@ -1,13 +1,3 @@
-/**
- * Copyright 2021-present, Facebook, Inc. All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * Messenger For Original Coast Clothing
- * https://developers.facebook.com/docs/messenger-platform/getting-started/sample-apps/original-coast-clothing
- */
-
 "use strict";
 
 // Import dependencies and set up http server
@@ -27,7 +17,7 @@ const express = require("express"),
 var users = {};
 
 //enable database
-Database.initialise();
+//Database.initialise();
 
 // Parse application/x-www-form-urlencoded
 app.use(
