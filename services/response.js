@@ -186,14 +186,10 @@ module.exports = class Response {
   static genMenuButton(userPSID) {
     const url1 = createLink(true);
     const url2 = createLink(false);
-
-
     const valid1 = isURLValid(url1);
     const valid2 = isURLValid(url2);
-
     console.log(valid1);
     console.log(valid1);
-
 
     if(!valid1){
       return this.genText("The menu has not been uploaded yet. Please try again later.");
@@ -201,9 +197,6 @@ module.exports = class Response {
     if(!valid2){
       return this.genText("The menu has not been uploaded yet. Please try again later.");
     }
-  
-  
-
     let menu = {
       attachment: {
         type: 'template',

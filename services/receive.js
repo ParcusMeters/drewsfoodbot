@@ -87,19 +87,22 @@ module.exports = class Receive {
     } else if (message.includes("image")){
       response = Menu.handlePayload("TODAYS_MENU");
     }else if (message.includes("can i see the menu?")){
-      response = [Response.genMenuButton(this.user.firstName),
-        Response.genRatingButtonLunch(),
-        Response.genRatingButton()];
+      response = [Response.genMenuButton(this.user.firstName)
+        //Response.genRatingButtonLunch(),
+        //Response.genRatingButton()
+      ];
     }
     else if (message.includes("can i see the menu")){
-      response = [Response.genMenuButton(this.user.firstName),
-        Response.genRatingButtonLunch(),
-        Response.genRatingButton()];
+      response = [Response.genMenuButton(this.user.firstName)
+        //Response.genRatingButtonLunch(),
+        //Response.genRatingButton()
+      ];
       }
     else if (message.includes("Can I see the menu")){
-      response = [Response.genMenuButton(this.user.firstName),
-                  Response.genRatingButtonLunch(),
-                  Response.genRatingButton()];
+      response = [Response.genMenuButton(this.user.firstName)
+                  //Response.genRatingButtonLunch(),
+                  //Response.genRatingButton()
+      ];
       }
     else if (message.includes("contact a pcl")){
       response = Response.genSendImage("https://students.standrewscollege.edu.au/wp-content/uploads/2023/02/PCL-poster-e1676266785520.png");
@@ -267,6 +270,7 @@ module.exports = class Receive {
 
     
     else if (payload === "LIKE_MENU"){
+      return;
       Database.hasUserReviewedToday(this.user.psid)
       .then((hasReviewed) => {
         // The Promise resolved successfully with a Boolean value
@@ -288,6 +292,7 @@ module.exports = class Receive {
     }
 
     else if (payload === "DISLIKE_MENU"){
+      return;
       Database.hasUserReviewedToday(this.user.psid)
         .then((hasReviewed) => {
           // The Promise resolved successfully with a Boolean value
@@ -311,6 +316,7 @@ module.exports = class Receive {
 
 
     else if (payload === "LIKE_LUNCH"){
+      return;
       Database.hasUserReviewedLunch(this.user.psid)
       .then((hasReviewed) => {
         // The Promise resolved successfully with a Boolean value
@@ -332,6 +338,7 @@ module.exports = class Receive {
     }
 
     else if (payload === "DISLIKE_LUNCH"){
+      return;
       Database.hasUserReviewedLunch(this.user.psid)
       .then((hasReviewed) => {
         // The Promise resolved successfully with a Boolean value
