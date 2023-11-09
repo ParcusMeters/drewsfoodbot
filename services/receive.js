@@ -255,9 +255,10 @@ module.exports = class Receive {
     } 
     //adding menu options
     else if (payload === "CAN I SEE THE MENU?"){
-      response = [Response.genMenuButton(this.user.firstName),
-        Response.genRatingButtonLunch(),
-        Response.genRatingButton()];
+      response = [Response.genMenuButton(this.user.firstName)
+        //Response.genRatingButtonLunch(),
+        //Response.genRatingButton()
+      ];
     }
     else if (payload === "CONTACT A PCL"){
       response = Response.genSendImage("https://students.standrewscollege.edu.au/wp-content/uploads/2023/02/PCL-poster-e1676266785520.png");
