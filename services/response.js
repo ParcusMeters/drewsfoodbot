@@ -311,11 +311,10 @@ module.exports = class Response {
 };
 
 function createLink(today){
-  let date_ob  = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Sydney' });
+  let sydneyOffset = 11 * 60; // Use 11 for AEDT, 10 for AEST
+  let  date_ob = new Date(new Date().getTime() + sydneyOffset * 60 * 1000);
 
-
-  let tomorrow  = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Sydney' }); // The Date object returns today's timestamp
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  let tomorrow  = new Date(date_ob.getDate() + 1)
 
   let month;
   let date;
