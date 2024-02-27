@@ -314,7 +314,7 @@ function createLink(today){
   let sydneyOffset = 11 * 60; // Use 11 for AEDT, 10 for AEST
   let  date_ob = new Date(new Date().getTime() + sydneyOffset * 60 * 1000);
 
-  let tomorrow  = new Date(date_ob.getDate() + 1)
+  let tomorrow  = new Date(date_ob.getDate() + (24 * 60 * 60 * 1000))
 
   let month;
   let date;
