@@ -311,7 +311,7 @@ module.exports = class Response {
 };
 
 function createLink(today){
-  let today = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Sydney' });
+  let date_ob  = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Sydney' });
 
 
   let tomorrow  = new Date().toLocaleString('en-AU', { timeZone: 'Australia/Sydney' }); // The Date object returns today's timestamp
