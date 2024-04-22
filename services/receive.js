@@ -267,7 +267,9 @@ module.exports = class Receive {
       response = Response.genSendImage("https://bn02pap001files.storage.live.com/y4mMcJSHBZFQd4BDb_C0vITxJzGemUNMLEWksEfId3mcaYRcrfnfc6L-CFEGCPKVIQU8uIBLVC6_Dws1nSr2f6rV0Bhv19EkDJrCrWM3acvDaRJaNVVG9El4dv58sRSCIvWqYzmFMIdEjJExjKcnnGZQMn_rY5DhSYd4aNAuwiLQxHyR9uqnJdlph0elkoLGyY8?width=1653&height=2339&cropmode=none");
     }
     
-
+    else if (payload === "blah"){
+      
+    }
 
     
     else if (payload === "LIKE_MENU"){
