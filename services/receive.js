@@ -104,12 +104,22 @@ module.exports = class Receive {
                   //Response.genRatingButton()fvv 
       ];
       }
+    else if (message.includes("Contact a PCL")){
+      response = Response.genSendImage("https://drews-bot.s3.ap-southeast-2.amazonaws.com/PCL.png");
+    }
+    else if (message.includes("Can I see the calendar?")){ 
+      response = Response.genSendImage("https://drews-bot.s3.ap-southeast-2.amazonaws.com/2024sem1.png");
+    }
     else if (message.includes("pcl")){
       response = Response.genSendImage("https://drews-bot.s3.ap-southeast-2.amazonaws.com/PCL.png");
     }
     else if (message.includes("calendar")){ 
       response = Response.genSendImage("https://drews-bot.s3.ap-southeast-2.amazonaws.com/2024sem1.png");
     }
+    else if (message.includes("Can I see the menu?")){
+      Response.genMenuButton(this.user.firstName);
+    }
+
     
     else if (message.includes("Menu Options")){
       response = Response.genMenuButton(this.user.firstName);
